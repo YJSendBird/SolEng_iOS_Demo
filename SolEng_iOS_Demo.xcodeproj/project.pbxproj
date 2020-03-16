@@ -1,0 +1,599 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		15AEBA42241FC8BF00241E4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AEBA41241FC8BF00241E4B /* AppDelegate.swift */; };
+		15AEBA44241FC8BF00241E4B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AEBA43241FC8BF00241E4B /* SceneDelegate.swift */; };
+		15AEBA46241FC8BF00241E4B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AEBA45241FC8BF00241E4B /* ContentView.swift */; };
+		15AEBA48241FC8C300241E4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15AEBA47241FC8C300241E4B /* Assets.xcassets */; };
+		15AEBA4B241FC8C300241E4B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15AEBA4A241FC8C300241E4B /* Preview Assets.xcassets */; };
+		15AEBA4E241FC8C300241E4B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15AEBA4C241FC8C300241E4B /* LaunchScreen.storyboard */; };
+		15AEBA59241FC8C300241E4B /* SolEng_iOS_DemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AEBA58241FC8C300241E4B /* SolEng_iOS_DemoTests.swift */; };
+		15AEBA64241FC8C300241E4B /* SolEng_iOS_DemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AEBA63241FC8C300241E4B /* SolEng_iOS_DemoUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		15AEBA55241FC8C300241E4B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 15AEBA36241FC8BF00241E4B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 15AEBA3D241FC8BF00241E4B;
+			remoteInfo = SolEng_iOS_Demo;
+		};
+		15AEBA60241FC8C300241E4B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 15AEBA36241FC8BF00241E4B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 15AEBA3D241FC8BF00241E4B;
+			remoteInfo = SolEng_iOS_Demo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		15AEBA3E241FC8BF00241E4B /* SolEng_iOS_Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SolEng_iOS_Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		15AEBA41241FC8BF00241E4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		15AEBA43241FC8BF00241E4B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		15AEBA45241FC8BF00241E4B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		15AEBA47241FC8C300241E4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		15AEBA4A241FC8C300241E4B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		15AEBA4D241FC8C300241E4B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		15AEBA4F241FC8C300241E4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		15AEBA54241FC8C300241E4B /* SolEng_iOS_DemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SolEng_iOS_DemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		15AEBA58241FC8C300241E4B /* SolEng_iOS_DemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolEng_iOS_DemoTests.swift; sourceTree = "<group>"; };
+		15AEBA5A241FC8C300241E4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		15AEBA5F241FC8C300241E4B /* SolEng_iOS_DemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SolEng_iOS_DemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		15AEBA63241FC8C300241E4B /* SolEng_iOS_DemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolEng_iOS_DemoUITests.swift; sourceTree = "<group>"; };
+		15AEBA65241FC8C300241E4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		15AEBA3B241FC8BF00241E4B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		15AEBA51241FC8C300241E4B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		15AEBA5C241FC8C300241E4B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		15AEBA35241FC8BF00241E4B = {
+			isa = PBXGroup;
+			children = (
+				15AEBA40241FC8BF00241E4B /* SolEng_iOS_Demo */,
+				15AEBA57241FC8C300241E4B /* SolEng_iOS_DemoTests */,
+				15AEBA62241FC8C300241E4B /* SolEng_iOS_DemoUITests */,
+				15AEBA3F241FC8BF00241E4B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		15AEBA3F241FC8BF00241E4B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				15AEBA3E241FC8BF00241E4B /* SolEng_iOS_Demo.app */,
+				15AEBA54241FC8C300241E4B /* SolEng_iOS_DemoTests.xctest */,
+				15AEBA5F241FC8C300241E4B /* SolEng_iOS_DemoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		15AEBA40241FC8BF00241E4B /* SolEng_iOS_Demo */ = {
+			isa = PBXGroup;
+			children = (
+				15AEBA41241FC8BF00241E4B /* AppDelegate.swift */,
+				15AEBA43241FC8BF00241E4B /* SceneDelegate.swift */,
+				15AEBA45241FC8BF00241E4B /* ContentView.swift */,
+				15AEBA47241FC8C300241E4B /* Assets.xcassets */,
+				15AEBA4C241FC8C300241E4B /* LaunchScreen.storyboard */,
+				15AEBA4F241FC8C300241E4B /* Info.plist */,
+				15AEBA49241FC8C300241E4B /* Preview Content */,
+			);
+			path = SolEng_iOS_Demo;
+			sourceTree = "<group>";
+		};
+		15AEBA49241FC8C300241E4B /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				15AEBA4A241FC8C300241E4B /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		15AEBA57241FC8C300241E4B /* SolEng_iOS_DemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				15AEBA58241FC8C300241E4B /* SolEng_iOS_DemoTests.swift */,
+				15AEBA5A241FC8C300241E4B /* Info.plist */,
+			);
+			path = SolEng_iOS_DemoTests;
+			sourceTree = "<group>";
+		};
+		15AEBA62241FC8C300241E4B /* SolEng_iOS_DemoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				15AEBA63241FC8C300241E4B /* SolEng_iOS_DemoUITests.swift */,
+				15AEBA65241FC8C300241E4B /* Info.plist */,
+			);
+			path = SolEng_iOS_DemoUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		15AEBA3D241FC8BF00241E4B /* SolEng_iOS_Demo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 15AEBA68241FC8C300241E4B /* Build configuration list for PBXNativeTarget "SolEng_iOS_Demo" */;
+			buildPhases = (
+				15AEBA3A241FC8BF00241E4B /* Sources */,
+				15AEBA3B241FC8BF00241E4B /* Frameworks */,
+				15AEBA3C241FC8BF00241E4B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SolEng_iOS_Demo;
+			productName = SolEng_iOS_Demo;
+			productReference = 15AEBA3E241FC8BF00241E4B /* SolEng_iOS_Demo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		15AEBA53241FC8C300241E4B /* SolEng_iOS_DemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 15AEBA6B241FC8C300241E4B /* Build configuration list for PBXNativeTarget "SolEng_iOS_DemoTests" */;
+			buildPhases = (
+				15AEBA50241FC8C300241E4B /* Sources */,
+				15AEBA51241FC8C300241E4B /* Frameworks */,
+				15AEBA52241FC8C300241E4B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				15AEBA56241FC8C300241E4B /* PBXTargetDependency */,
+			);
+			name = SolEng_iOS_DemoTests;
+			productName = SolEng_iOS_DemoTests;
+			productReference = 15AEBA54241FC8C300241E4B /* SolEng_iOS_DemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		15AEBA5E241FC8C300241E4B /* SolEng_iOS_DemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 15AEBA6E241FC8C300241E4B /* Build configuration list for PBXNativeTarget "SolEng_iOS_DemoUITests" */;
+			buildPhases = (
+				15AEBA5B241FC8C300241E4B /* Sources */,
+				15AEBA5C241FC8C300241E4B /* Frameworks */,
+				15AEBA5D241FC8C300241E4B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				15AEBA61241FC8C300241E4B /* PBXTargetDependency */,
+			);
+			name = SolEng_iOS_DemoUITests;
+			productName = SolEng_iOS_DemoUITests;
+			productReference = 15AEBA5F241FC8C300241E4B /* SolEng_iOS_DemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		15AEBA36241FC8BF00241E4B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = YongjunChoi;
+				TargetAttributes = {
+					15AEBA3D241FC8BF00241E4B = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					15AEBA53241FC8C300241E4B = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = 15AEBA3D241FC8BF00241E4B;
+					};
+					15AEBA5E241FC8C300241E4B = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = 15AEBA3D241FC8BF00241E4B;
+					};
+				};
+			};
+			buildConfigurationList = 15AEBA39241FC8BF00241E4B /* Build configuration list for PBXProject "SolEng_iOS_Demo" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 15AEBA35241FC8BF00241E4B;
+			productRefGroup = 15AEBA3F241FC8BF00241E4B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				15AEBA3D241FC8BF00241E4B /* SolEng_iOS_Demo */,
+				15AEBA53241FC8C300241E4B /* SolEng_iOS_DemoTests */,
+				15AEBA5E241FC8C300241E4B /* SolEng_iOS_DemoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		15AEBA3C241FC8BF00241E4B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15AEBA4E241FC8C300241E4B /* LaunchScreen.storyboard in Resources */,
+				15AEBA4B241FC8C300241E4B /* Preview Assets.xcassets in Resources */,
+				15AEBA48241FC8C300241E4B /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		15AEBA52241FC8C300241E4B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		15AEBA5D241FC8C300241E4B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		15AEBA3A241FC8BF00241E4B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15AEBA42241FC8BF00241E4B /* AppDelegate.swift in Sources */,
+				15AEBA44241FC8BF00241E4B /* SceneDelegate.swift in Sources */,
+				15AEBA46241FC8BF00241E4B /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		15AEBA50241FC8C300241E4B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15AEBA59241FC8C300241E4B /* SolEng_iOS_DemoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		15AEBA5B241FC8C300241E4B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15AEBA64241FC8C300241E4B /* SolEng_iOS_DemoUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		15AEBA56241FC8C300241E4B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 15AEBA3D241FC8BF00241E4B /* SolEng_iOS_Demo */;
+			targetProxy = 15AEBA55241FC8C300241E4B /* PBXContainerItemProxy */;
+		};
+		15AEBA61241FC8C300241E4B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 15AEBA3D241FC8BF00241E4B /* SolEng_iOS_Demo */;
+			targetProxy = 15AEBA60241FC8C300241E4B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		15AEBA4C241FC8C300241E4B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				15AEBA4D241FC8C300241E4B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		15AEBA66241FC8C300241E4B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		15AEBA67241FC8C300241E4B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		15AEBA69241FC8C300241E4B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"SolEng_iOS_Demo/Preview Content\"";
+				DEVELOPMENT_TEAM = 2UAG8WCL8D;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = SolEng_iOS_Demo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sendbird.soleng.demo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		15AEBA6A241FC8C300241E4B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"SolEng_iOS_Demo/Preview Content\"";
+				DEVELOPMENT_TEAM = 2UAG8WCL8D;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = SolEng_iOS_Demo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sendbird.soleng.demo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		15AEBA6C241FC8C300241E4B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2UAG8WCL8D;
+				INFOPLIST_FILE = SolEng_iOS_DemoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sendbird.soleng.demo.SolEng-iOS-DemoTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SolEng_iOS_Demo.app/SolEng_iOS_Demo";
+			};
+			name = Debug;
+		};
+		15AEBA6D241FC8C300241E4B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2UAG8WCL8D;
+				INFOPLIST_FILE = SolEng_iOS_DemoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sendbird.soleng.demo.SolEng-iOS-DemoTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SolEng_iOS_Demo.app/SolEng_iOS_Demo";
+			};
+			name = Release;
+		};
+		15AEBA6F241FC8C300241E4B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2UAG8WCL8D;
+				INFOPLIST_FILE = SolEng_iOS_DemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sendbird.soleng.demo.SolEng-iOS-DemoUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SolEng_iOS_Demo;
+			};
+			name = Debug;
+		};
+		15AEBA70241FC8C300241E4B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2UAG8WCL8D;
+				INFOPLIST_FILE = SolEng_iOS_DemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sendbird.soleng.demo.SolEng-iOS-DemoUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SolEng_iOS_Demo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		15AEBA39241FC8BF00241E4B /* Build configuration list for PBXProject "SolEng_iOS_Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				15AEBA66241FC8C300241E4B /* Debug */,
+				15AEBA67241FC8C300241E4B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		15AEBA68241FC8C300241E4B /* Build configuration list for PBXNativeTarget "SolEng_iOS_Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				15AEBA69241FC8C300241E4B /* Debug */,
+				15AEBA6A241FC8C300241E4B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		15AEBA6B241FC8C300241E4B /* Build configuration list for PBXNativeTarget "SolEng_iOS_DemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				15AEBA6C241FC8C300241E4B /* Debug */,
+				15AEBA6D241FC8C300241E4B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		15AEBA6E241FC8C300241E4B /* Build configuration list for PBXNativeTarget "SolEng_iOS_DemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				15AEBA6F241FC8C300241E4B /* Debug */,
+				15AEBA70241FC8C300241E4B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 15AEBA36241FC8BF00241E4B /* Project object */;
+}
