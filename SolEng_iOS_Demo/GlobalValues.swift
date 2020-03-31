@@ -16,7 +16,9 @@ class GlobalValues: ObservableObject {
 
     var userId: String {
         get {
-            return UserDefaults.standard.string(forKey: "userId") ?? ""
+            let userId = UserDefaults.standard.string(forKey: "userId") ?? ""
+            print("userId = " + userId)
+            return userId
         }
         set {
             UserDefaults.standard.set(newValue, forKey: "userId")

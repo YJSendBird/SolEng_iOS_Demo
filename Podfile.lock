@@ -39,13 +39,17 @@ PODS:
     - nanopb/encode (= 0.3.9011)
   - nanopb/decode (0.3.9011)
   - nanopb/encode (0.3.9011)
+  - SendBirdCalls (1.0.1):
+    - SendBirdWebRTC
   - SendBirdSDK (3.0.167)
   - SendBirdSyncManager (1.1.17):
     - SendBirdSDK (~> 3.0.156)
+  - SendBirdWebRTC (1.1.1)
 
 DEPENDENCIES:
   - AlamofireImage
   - ImageStore
+  - SendBirdCalls
   - SendBirdSyncManager
 
 SPEC REPOS:
@@ -67,6 +71,8 @@ SPEC REPOS:
     - GTMSessionFetcher
     - ImageStore
     - nanopb
+    - SendBirdCalls
+    - SendBirdWebRTC
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
@@ -83,9 +89,11 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: cea130bbfe5a7edc8d06d3f0d17288c32ffe9925
   ImageStore: b5f6ac827f5c097172596de9bc0b4e03ce59bfa9
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
+  SendBirdCalls: 0aa4ba24e68f8b4a21a0238cccb0c5bc91da5fbe
   SendBirdSDK: cac87759da8d0634148ada7a289206b8de187bbb
   SendBirdSyncManager: d8083e9c5fb48ac57e59e01ce9548d481134fdf6
+  SendBirdWebRTC: bc541d01a10819a6d1b3e52790a54121cb7dd687
 
-PODFILE CHECKSUM: 5b98419fe66891ee54aedfdac6591c005966e3ed
+PODFILE CHECKSUM: 36eeb142ba1d282cb930bd16d313393531970eed
 
 COCOAPODS: 1.9.1

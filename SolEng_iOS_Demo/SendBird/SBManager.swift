@@ -8,17 +8,20 @@
 
 import Foundation
 import SendBirdSyncManager
+import SendBirdCalls
 
 class SBManager: NSObject, SBDConnectionDelegate, SBDUserEventDelegate, SBDChannelDelegate {
     // MARK: - Properties
 
     static let UNIQUE_DELEGATE_ID = "SBManager"
     
-    static let APP_ID = "9DA1B1F4-0BE6-4DA8-82C5-2E81DAB56F23"
+    //static let APP_ID = "9DA1B1F4-0BE6-4DA8-82C5-2E81DAB56F23"    //Sample
+    static let APP_ID = "A5192321-42DA-4ADC-8A75-6311D24BF4FE"      //SendBird-Calls-Playground
 
     private static var sharedManager: SBManager = {
         let shared = SBManager()
         SBDMain.initWithApplicationId(SBManager.APP_ID)
+        SendBirdCall.configure(appId: SBManager.APP_ID)
         return shared
     }()
 
@@ -115,7 +118,7 @@ class SBManager: NSObject, SBDConnectionDelegate, SBDUserEventDelegate, SBDChann
         print("SBDConnectionDelegate didReceiveInvitation")
     }
 
-    func channel(_ sender: SBDGroupChannel, didDeclineInvitation invitee: SBDUser?, inviter: SBDUser?) {
+    func channel(_ sender: SBDGroupChannel, didDeclineInvitation invitee: SBDUser, inviter: SBDUser?) {
         print("SBDConnectionDelegate didDeclineInvitation")
     }
 

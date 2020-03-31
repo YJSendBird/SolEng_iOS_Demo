@@ -7,6 +7,7 @@ target 'SolEng_iOS_Demo' do
 
   # Pods for SolEng_iOS_Demo
   pod 'SendBirdSyncManager'
+  pod 'SendBirdCalls'
   pod 'AlamofireImage'
   pod "ImageStore"
 

@@ -7,10 +7,8 @@
 //
 
 import SwiftUI
-import CoreLocation
 
-
-struct MenuItem: Hashable, Codable, Identifiable {
+struct MainViewListItem: Hashable, Codable, Identifiable {
     public var id: Int
     public var name: String
 }

@@ -14,7 +14,7 @@ struct RootUIView: View {
 
     var body: some View {
         Group {
-                userId.count > 0 ? AnyView(MainView()) : AnyView(LoginView())
+            userId.count > 0 ? AnyView(MainView()) : AnyView(LoginView())
         }.onReceive(GlobalValues.sharedInstance.userIdString) {
             self.userId = $0
         }

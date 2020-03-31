@@ -11,3 +11,11 @@ git clone git@github.com:YJSendBird/SolEng_iOS_Demo.git
 pod install
 ```
 
+## History
+
+'20200326'
+1. View : Login
+2. View : Main List
+3. SendBird : Connect
+
+

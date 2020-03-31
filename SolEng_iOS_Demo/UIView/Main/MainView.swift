@@ -11,23 +11,23 @@ import SwiftUI
 
 struct MainView: View {
     var menuItems = [
-        MenuItem(id: 0 , name: "Group Channel"),
-        MenuItem(id: 1 , name: "Open Channel"),
-        MenuItem(id: 2 , name: "Broadcast Channel"),
-        MenuItem(id: 3 , name: "SendBird Call")
+        MainViewListItem(id: 0 , name: "Group Channel"),
+        MainViewListItem(id: 1 , name: "Open Channel"),
+        MainViewListItem(id: 2 , name: "Broadcast Channel"),
+        MainViewListItem(id: 3 , name: "SendBird Call")
     ]
 
     var body: some View {
         NavigationView {
             List(menuItems) { menuItem in
-                NavigationLink(destination: ChatView()) {
-                    MenuItemRow(item : menuItem)
+                NavigationLink(destination: ChannelList()) {
+                    MainViewListItemRow(item : menuItem)
                 }
             }
-            .navigationBarTitle(Text("Choose Test Case"))
+            .navigationBarTitle(Text("SendBird Chat Demo"))
             .navigationBarItems(trailing:
                 HStack {
-                    Button("logout") {
+                    Button("Logout") {
                         print("About tapped!")
                         GlobalValues.sharedInstance.userId = ""
                     }

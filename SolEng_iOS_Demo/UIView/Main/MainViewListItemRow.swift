@@ -8,18 +8,18 @@
 
 import SwiftUI
 
-struct MenuItemRow: View {
+struct MainViewListItemRow: View {
     
-    var item:MenuItem
+    var item:MainViewListItem
 
     var body: some View {
         Text(item.name)
     }
 }
 
-struct MenuItemRow_Previews: PreviewProvider {
+struct MainViewListItemRow_Previews: PreviewProvider {
     static var previews: some View {
-        MenuItemRow(item: MenuItem(id: 0, name: "menu name"))
+        MainViewListItemRow(item: MainViewListItem(id: 0, name: "menu name"))
     }
 }
 
