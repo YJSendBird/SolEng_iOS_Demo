@@ -10,25 +10,34 @@ import SwiftUI
 
 
 struct MainView: View {
+    
     var menuItems = [
-        MainViewListItem(id: 0 , name: "Group Channel"),
-        MainViewListItem(id: 1 , name: "Open Channel"),
-        MainViewListItem(id: 2 , name: "Broadcast Channel"),
-        MainViewListItem(id: 3 , name: "SendBird Call")
+        MainViewListItem(id: 0, name: "Users"),
+        MainViewListItem(id: 1, name: "Group Channel"),
+        MainViewListItem(id: 2, name: "Open Channel"),
+        MainViewListItem(id: 3, name: "Broadcast Channel"),
+        MainViewListItem(id: 4, name: "SendBird Call")
     ]
 
     var body: some View {
         NavigationView {
             List(menuItems) { menuItem in
-                NavigationLink(destination: ChannelList()) {
-                    MainViewListItemRow(item : menuItem)
+                //사용자 리스트
+                if menuItem.id == 0 {
+                    NavigationLink(destination: UserUIView()) {
+                        MainViewListItemRow(item : menuItem)
+                    }
+                } else {
+                    NavigationLink(destination: ChannelList()) {
+                        MainViewListItemRow(item : menuItem)
+                    }
                 }
             }
             .navigationBarTitle(Text("SendBird Chat Demo"))
             .navigationBarItems(trailing:
                 HStack {
                     Button("Logout") {
-                        print("About tapped!")
+                        print("Logout tapped!")
                         GlobalValues.sharedInstance.userId = ""
                     }
             })

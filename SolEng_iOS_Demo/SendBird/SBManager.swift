@@ -53,6 +53,28 @@ class SBManager: NSObject, SBDConnectionDelegate, SBDUserEventDelegate, SBDChann
         })
     }
     
+    public func getUsers(completion: @escaping([UserModel]) -> ()) {
+        // Retrieving all users
+        let applicationUserListQuery = SBDMain.createApplicationUserListQuery()
+        applicationUserListQuery?.loadNextPage(completionHandler: { (users, error) in
+            guard error == nil else {   // Error.
+                print(error.debugDescription)
+                return
+            }
+            /*
+            let decoder = JSONDecoder()
+            let userItems = try! decoder.decode([UserListItem].self, from: users)
+            */
+            var userItems:[UserModel] = [];
+            
+            for user in users! {
+                userItems.append(UserModel(id: user.userId, name: user.nickname!))
+            }
+            
+            completion(userItems)
+        })
+    }
+    
     // MARK: - SBDConnectionDelegate
     func channel(_ sender: SBDBaseChannel, didReceive message: SBDBaseMessage) {
         print("SBDConnectionDelegate didReceive")

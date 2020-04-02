@@ -26,6 +26,10 @@
 		33510C34242DB12900E6874E /* ChannelListItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33510C33242DB12900E6874E /* ChannelListItemRow.swift */; };
 		33510C372433215600E6874E /* ChatUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33510C362433215600E6874E /* ChatUIView.swift */; };
 		33510C39243321A600E6874E /* ChannelListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33510C38243321A600E6874E /* ChannelListItem.swift */; };
+		33510C3C243428A900E6874E /* UserUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33510C3B243428A900E6874E /* UserUIView.swift */; };
+		33510C40243428D100E6874E /* UserListItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33510C3F243428D100E6874E /* UserListItemRow.swift */; };
+		33510C422434C95A00E6874E /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33510C412434C95A00E6874E /* UserModel.swift */; };
+		33510C442434C96700E6874E /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33510C432434C96700E6874E /* UserViewModel.swift */; };
 		58C043B5F96A7D0A5E2D5F71 /* Pods_SolEng_iOS_DemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCE7CE4BEC4AF4280A09F1D3 /* Pods_SolEng_iOS_DemoUITests.framework */; };
 		963003946B48B88B45510B2D /* Pods_SolEng_iOS_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8D0C4E57210FD0A25C483DB /* Pods_SolEng_iOS_Demo.framework */; };
 		B8841BE1A973A78C25E8F75B /* Pods_SolEng_iOS_DemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91923C16FE34C0AE121E4C5C /* Pods_SolEng_iOS_DemoTests.framework */; };
@@ -75,6 +79,10 @@
 		33510C33242DB12900E6874E /* ChannelListItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelListItemRow.swift; sourceTree = "<group>"; };
 		33510C362433215600E6874E /* ChatUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUIView.swift; sourceTree = "<group>"; };
 		33510C38243321A600E6874E /* ChannelListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelListItem.swift; sourceTree = "<group>"; };
+		33510C3B243428A900E6874E /* UserUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUIView.swift; sourceTree = "<group>"; };
+		33510C3F243428D100E6874E /* UserListItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListItemRow.swift; sourceTree = "<group>"; };
+		33510C412434C95A00E6874E /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		33510C432434C96700E6874E /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		5318F34E6BCAC29580F8C609 /* Pods-SolEng_iOS_DemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SolEng_iOS_DemoUITests.debug.xcconfig"; path = "Target Support Files/Pods-SolEng_iOS_DemoUITests/Pods-SolEng_iOS_DemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		91923C16FE34C0AE121E4C5C /* Pods_SolEng_iOS_DemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SolEng_iOS_DemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9438B396EC5C0B296425A550 /* Pods-SolEng_iOS_Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SolEng_iOS_Demo.release.xcconfig"; path = "Target Support Files/Pods-SolEng_iOS_Demo/Pods-SolEng_iOS_Demo.release.xcconfig"; sourceTree = "<group>"; };
@@ -181,6 +189,7 @@
 		3303C181242857C100C2EC7D /* UIView */ = {
 			isa = PBXGroup;
 			children = (
+				33510C3A2434107700E6874E /* Users */,
 				33510C352433214300E6874E /* Chat */,
 				33510C2F242AEBC900E6874E /* Channel */,
 				33510C2E242AEB2200E6874E /* Main */,
@@ -232,6 +241,17 @@
 				33510C362433215600E6874E /* ChatUIView.swift */,
 			);
 			path = Chat;
+			sourceTree = "<group>";
+		};
+		33510C3A2434107700E6874E /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				33510C3B243428A900E6874E /* UserUIView.swift */,
+				33510C3F243428D100E6874E /* UserListItemRow.swift */,
+				33510C412434C95A00E6874E /* UserModel.swift */,
+				33510C432434C96700E6874E /* UserViewModel.swift */,
+			);
+			path = Users;
 			sourceTree = "<group>";
 		};
 		559DD11D9FAB04D2B426B487 /* Frameworks */ = {
@@ -479,6 +499,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				15AEBA42241FC8BF00241E4B /* AppDelegate.swift in Sources */,
+				33510C3C243428A900E6874E /* UserUIView.swift in Sources */,
 				15AEBA44241FC8BF00241E4B /* SceneDelegate.swift in Sources */,
 				33510C2D2429E92800E6874E /* ChannelList.swift in Sources */,
 				3303C1892428B7D700C2EC7D /* MainViewListItem.swift in Sources */,
@@ -489,8 +510,11 @@
 				15AEBA46241FC8BF00241E4B /* MainView.swift in Sources */,
 				3303C1842428884900C2EC7D /* RootUIView.swift in Sources */,
 				33510C39243321A600E6874E /* ChannelListItem.swift in Sources */,
+				33510C442434C96700E6874E /* UserViewModel.swift in Sources */,
 				33510C32242AEBFF00E6874E /* SBManager.swift in Sources */,
+				33510C40243428D100E6874E /* UserListItemRow.swift in Sources */,
 				3303C1802428576100C2EC7D /* AdaptsToKeyboard.swift in Sources */,
+				33510C422434C95A00E6874E /* UserModel.swift in Sources */,
 				3303C1872428992800C2EC7D /* GlobalValues.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

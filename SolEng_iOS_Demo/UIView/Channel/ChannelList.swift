@@ -11,10 +11,10 @@ import SwiftUI
 struct ChannelList: View {
     
     var channelItems = [
-        ChannelListItem(id: 0 , name: "Group Channel"),
-        ChannelListItem(id: 1 , name: "Open Channel"),
-        ChannelListItem(id: 2 , name: "Broadcast Channel"),
-        ChannelListItem(id: 3 , name: "SendBird Call")
+        ChannelListItem(id: 0 , name: "Channel 01"),
+        ChannelListItem(id: 1 , name: "Channel 02"),
+        ChannelListItem(id: 2 , name: "Channel 03"),
+        ChannelListItem(id: 3 , name: "Channel 04")
     ]
     
     var body: some View {
@@ -27,8 +27,7 @@ struct ChannelList: View {
         .navigationBarItems(trailing:
             HStack {
                 Button("Add") {
-                    print("About tapped!")
-                    GlobalValues.sharedInstance.userId = ""
+                    print("Add tapped!")
                 }
         })
     }

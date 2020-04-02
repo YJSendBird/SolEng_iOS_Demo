@@ -11,6 +11,12 @@ import SwiftUI
 struct RootUIView: View {
     
     @State var userId = GlobalValues.sharedInstance.userId
+    
+    init() {
+        if userId.count > 0 {
+            SBManager.shared().connect(userId: self.userId)
+        }
+    }
 
     var body: some View {
         Group {
