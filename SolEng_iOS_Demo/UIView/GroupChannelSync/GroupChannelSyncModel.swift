@@ -9,7 +9,7 @@
 
 import SwiftUI
 
-struct ChannelListItem: Hashable, Codable, Identifiable {
-    public var id: Int
+struct GroupChannelSyncModel: Hashable, Codable, Identifiable {
+    public var id: String
     public var name: String
 }

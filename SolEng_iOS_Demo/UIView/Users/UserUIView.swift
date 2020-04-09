@@ -10,7 +10,7 @@ import SwiftUI
 
 struct UserUIView: View {
     
-    @State var models = UserViewModel()
+    @State var models = SBManager.shared().userModel
     
     var body: some View {
         List(models.users) { user in

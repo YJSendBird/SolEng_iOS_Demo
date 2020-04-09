@@ -13,9 +13,9 @@ struct MainView: View {
     
     var menuItems = [
         MainViewListItem(id: 0, name: "Users"),
-        MainViewListItem(id: 1, name: "Group Channel"),
-        MainViewListItem(id: 2, name: "Open Channel"),
-        MainViewListItem(id: 3, name: "Broadcast Channel"),
+        MainViewListItem(id: 1, name: "Group Channel Syncmanager"),
+        MainViewListItem(id: 2, name: "Group Channel Basic"),
+        MainViewListItem(id: 3, name: "Open Channel"),
         MainViewListItem(id: 4, name: "SendBird Call")
     ]
 
@@ -27,18 +27,29 @@ struct MainView: View {
                     NavigationLink(destination: UserUIView()) {
                         MainViewListItemRow(item : menuItem)
                     }
-                } else {
-                    NavigationLink(destination: ChannelList()) {
+                } else if menuItem.id == 1 {
+                    NavigationLink(destination: GroupChanneljSyncList()) {
                         MainViewListItemRow(item : menuItem)
                     }
+                }  else if menuItem.id == 2 {
+                   NavigationLink(destination: GroupChanneljList()) { //TODO - Group Channel Basic
+                       MainViewListItemRow(item : menuItem)
+                   }
+                }  else if  menuItem.id == 3 {
+                   NavigationLink(destination: OpenChannelList()) {
+                       MainViewListItemRow(item : menuItem)
+                   }
+                }  else {
+                   NavigationLink(destination: OpenChannelList()) {
+                      MainViewListItemRow(item : menuItem)
+                   }
                 }
             }
             .navigationBarTitle(Text("SendBird Chat Demo"))
             .navigationBarItems(trailing:
                 HStack {
                     Button("Logout") {
-                        print("Logout tapped!")
-                        GlobalValues.sharedInstance.userId = ""
+                        SBManager.shared().logOut()
                     }
             })
         }

@@ -11,23 +11,9 @@ import SwiftUI
 import Combine
 
 final class UserViewModel {
-    
-    init () {
-        fetchUser()
-    }
-    
     var users = [UserModel]() {
         didSet {
             didChange.send(self)
-        }
-    }
-    
-    private func fetchUser() {
-        SBManager.shared().getUsers { (userItems) in
-            for user in userItems {
-                print("username = %s", user.name)
-                self.users.append(user)
-            }
         }
     }
     

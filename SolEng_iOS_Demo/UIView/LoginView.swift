@@ -39,7 +39,9 @@ struct LoginView: View {
 
         Button("CONNECT")
         {
-            SBManager.shared().connect(userId: self.userId)
+            SBManager.shared().connect(userId: self.userId) { (connected) in
+                
+            }
         }
         .font(.headline)
         .foregroundColor(.white)
