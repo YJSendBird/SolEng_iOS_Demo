@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 
         //센드버드 연결
-        let userId = UserDefaults.standard.string(forKey: "userId") ?? ""
+        let userId = UserDefaults.standard.user.id
         if userId.count > 0 {
             SBManager.shared().connect(userId: userId) { (connected) in
                 if connected {
@@ -35,7 +35,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func showWindow(_ scene: UIScene) {
         // Create the SwiftUI view that provides the window contents.
-        let contentView = RootView()
+        let contentView = RootView(viewRouter: SBManager.shared().viewRouter)
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
