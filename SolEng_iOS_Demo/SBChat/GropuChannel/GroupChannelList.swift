@@ -9,13 +9,13 @@
 
 import SwiftUI
 
-struct GroupChanneljList: View {
+struct GroupChannelList: View {
     
-    @State var models = SBManager.shared().groupChannelModel
+    @ObservedObject var models = SBManager.shared().groupChannelModel
 
     var body: some View {
         List(models.lists) { item in
-            NavigationLink(destination: ChatUIView(channelUrl: item.channelUrl)) {
+            NavigationLink(destination: ChatUIView(isOpenChat:false, channelUrl: item.channelUrl, channelName: item.name)) {
                 GroupChannelListItemRow(item : item)
             }
         }
@@ -32,6 +32,6 @@ struct GroupChanneljList: View {
 
 struct GroupChannelList_Previews: PreviewProvider {
     static var previews: some View {
-        GroupChanneljList()
+        GroupChannelList()
     }
 }

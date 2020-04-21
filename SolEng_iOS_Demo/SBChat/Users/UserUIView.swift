@@ -14,7 +14,9 @@ struct UserUIView: View {
     
     var body: some View {
         List(models.users) { user in
+            NavigationLink(destination: ChatUIView(isOpenChat:false, userId: user.id, name: user.name)) {
                 UserListItemRow(user : user)
+            }
         }
         .navigationBarTitle(Text("Users"))
 //        .navigationBarItems(trailing:

@@ -13,11 +13,9 @@ struct MainView: View {
     
     var menuItems = [
         MainViewListItem(id: 0, name: "Users"),
-        MainViewListItem(id: 1, name: "Group Channel Syncmanager"),
+        MainViewListItem(id: 1, name: "Group Channel Sync"),
         MainViewListItem(id: 2, name: "Group Channel Basic"),
         MainViewListItem(id: 3, name: "Open Channel"),
-        MainViewListItem(id: 4, name: "SendBird Voice Call"),
-        MainViewListItem(id: 5, name: "SendBird Video Call")
     ]
 
     var body: some View {
@@ -28,27 +26,19 @@ struct MainView: View {
                     NavigationLink(destination: UserUIView()) {
                         MainViewListItemRow(item : menuItem)
                     }
-                } else if menuItem.id == 1 {
-                    NavigationLink(destination: GroupChanneljSyncList()) {
+                }  else if menuItem.id == 1 {
+                    NavigationLink(destination: GroupChannelSyncList()) {
                         MainViewListItemRow(item : menuItem)
                     }
                 }  else if menuItem.id == 2 {
-                   NavigationLink(destination: GroupChanneljList()) { //TODO - Group Channel Basic
+                   NavigationLink(destination: GroupChannelList()) { //TODO - Group Channel Basic
                        MainViewListItemRow(item : menuItem)
                    }
                 }  else if  menuItem.id == 3 {
                    NavigationLink(destination: OpenChannelList()) {
                        MainViewListItemRow(item : menuItem)
                    }
-                }  else if  menuItem.id == 4{
-                   NavigationLink(destination: VoiceCallUIView()) {
-                      MainViewListItemRow(item : menuItem)
-                   }
-                }  else if  menuItem.id == 5{
-                     NavigationLink(destination: VideoCallUIView()) {
-                        MainViewListItemRow(item : menuItem)
-                     }
-                  }
+                } 
             }
             .navigationBarTitle(Text("SendBird Chat Demo"))
             .navigationBarItems(trailing:

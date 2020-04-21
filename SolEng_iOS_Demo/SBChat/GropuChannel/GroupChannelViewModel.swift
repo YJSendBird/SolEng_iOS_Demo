@@ -11,11 +11,6 @@ import SwiftUI
 import Combine
 import SendBirdSyncManager
 
-final class GroupChannelViewModel {
-    var lists = [GroupChannelModel]() {
-        didSet {
-            didChange.send(self)
-        }
-    }
-    let didChange = PassthroughSubject<GroupChannelViewModel, Never>()
+final class GroupChannelViewModel: ObservableObject {
+    @Published var lists = [GroupChannelModel]() 
 }

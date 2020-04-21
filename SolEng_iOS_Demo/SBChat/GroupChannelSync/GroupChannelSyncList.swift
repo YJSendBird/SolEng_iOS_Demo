@@ -8,15 +8,15 @@
 
 import SwiftUI
 
-struct GroupChanneljSyncList: View {
+struct GroupChannelSyncList: View {
     
-    @State var models = SBManager.shared().gropuChannelSyncModel
+    @ObservedObject var models = SBManager.shared().gropuChannelSyncModel
 
     var body: some View {
         List(models.lists) { item in
-            //NavigationLink(destination: ChatUIView(channelUrl: item.channelUrl)) {
+            NavigationLink(destination: ChatUIView(isOpenChat:false, channelUrl: item.channelUrl, channelName: item.name)) {
                 GroupChannelSyncListItemRow(item : item)
-            //}
+            }
         }
         .navigationBarTitle(Text("Group Channel Sync List"))
         .navigationBarItems(trailing:
@@ -30,6 +30,6 @@ struct GroupChanneljSyncList: View {
 
 struct GroupChannelSyncList_Previews: PreviewProvider {
     static var previews: some View {
-        GroupChanneljSyncList()
+        GroupChannelSyncList()
     }
 }

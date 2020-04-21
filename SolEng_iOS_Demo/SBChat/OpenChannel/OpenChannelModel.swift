@@ -9,7 +9,8 @@
 import Foundation
 
 struct OpenChannelModel: Hashable, Codable, Identifiable {
-    public var id: String
-    public var name: String
-    public var channelUrl: String
+    var id: String
+    var name: String
+    var channelUrl: String
+    var coverUrl: String
 }

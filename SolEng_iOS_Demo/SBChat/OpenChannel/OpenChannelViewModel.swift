@@ -11,11 +11,6 @@ import SwiftUI
 import Combine
 import SendBirdSyncManager
 
-final class OpenChannelViewModel {
-    var lists = [OpenChannelModel]() {
-        didSet {
-            didChange.send(self)
-        }
-    }
-    let didChange = PassthroughSubject<OpenChannelViewModel, Never>()
+final class OpenChannelViewModel: ObservableObject {
+    @Published var lists = [OpenChannelModel]()
 }

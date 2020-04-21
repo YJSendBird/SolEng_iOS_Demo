@@ -14,18 +14,20 @@ struct ChatItemRow: View {
     
     var body: some View {
         HStack(alignment: .bottom, spacing: 15) {
-            if !item.user.isCurrentUser {
-                Image(item.user.avatar)
-                .resizable()
-                .frame(width: 40, height: 40, alignment: .center)
-                .cornerRadius(20)
+            if item.messageType ==  MessageType.adminMessage {
+                AdminMessageView(contentMessage: item.message)
             } else {
-                Spacer()
+                if !item.user.isCurrentUser {
+                    AvatarView(url: item.user.avatar)
+                    ReceiveMessageView(contentMessage: item.message)
+                    Spacer()
+                }else {
+                    Spacer()
+                    SendMessageView(contentMessage: item.message)
+                }
             }
-            ContentMessageView(contentMessage: item.message,
-                               isCurrentUser: item.user.isCurrentUser)
-        }.onAppear(perform: checkItem)
 
+        }.onAppear(perform: checkItem)
     }
     
     private func checkItem() {

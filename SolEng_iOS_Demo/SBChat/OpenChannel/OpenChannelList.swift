@@ -10,13 +10,13 @@ import SwiftUI
 
 struct OpenChannelList: View {
     
-    @State var models = SBManager.shared().openChannelModel
+    @ObservedObject var models = SBManager.shared().openChannelModel
 
     var body: some View {
         List(models.lists) { item in
-            //NavigationLink(destination: ChatUIView(channelUrl: item.channelUrl)) {
+            NavigationLink(destination: ChatUIView(isOpenChat:true, channelUrl: item.channelUrl, channelName: item.name)) {
                OpenChannelListItemRow(item : item)
-            //}
+            }
         }
         .navigationBarTitle(Text("Open Channel List"))
         .navigationBarItems(trailing:

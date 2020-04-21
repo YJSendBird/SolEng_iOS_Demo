@@ -127,7 +127,7 @@ class SBManager: NSObject, SBDConnectionDelegate, SBDUserEventDelegate, SBDChann
 
             if self.userListQuery?.hasNext == true {
                 for user in users! {
-                    self.userModel.users.append(UserModel(id: user.userId, name: user.nickname!))
+                    self.userModel.users.append(UserModel(id: user.userId, name: user.nickname!, avatar: user.profileUrl!))
                 }
                 //반복해서 읽어오기
                 self.getUsers()
@@ -176,7 +176,7 @@ class SBManager: NSObject, SBDConnectionDelegate, SBDUserEventDelegate, SBDChann
                 }
             
                 for channel in groupChannels! {
-                    self.groupChannelModel.lists.append(GroupChannelModel(id: channel.channelUrl, name: channel.name, channelUrl: channel.channelUrl))
+                    self.groupChannelModel.lists.append(GroupChannelModel(id: channel.channelUrl, name: channel.name, channelUrl: channel.channelUrl, coverUrl: channel.coverUrl!))
                 }
             
                 if self.groupChannelQuery?.hasNext == true {
@@ -184,6 +184,17 @@ class SBManager: NSObject, SBDConnectionDelegate, SBDUserEventDelegate, SBDChann
                     self.getGroupChannels()
                 }
             })
+    }
+
+    func createGroupChannel(userId: String, completion: @escaping(Bool, String?) -> ()) {
+
+        SBDGroupChannel.createChannel(withUserIds: [userId], isDistinct: true, completionHandler: { (groupChannel, error) in
+            guard error == nil else {   // Error.
+                completion(false, nil)
+                return
+            }
+            completion(true, groupChannel?.channelUrl)
+        })
     }
 
     // MARK: - open channel
@@ -207,7 +218,7 @@ class SBManager: NSObject, SBDConnectionDelegate, SBDUserEventDelegate, SBDChann
                 }
 
                 for channel in openChannels! {
-                    self.openChannelModel.lists.append(OpenChannelModel(id: channel.channelUrl, name: channel.name, channelUrl: channel.channelUrl))
+                    self.openChannelModel.lists.append(OpenChannelModel(id: channel.channelUrl, name: channel.name, channelUrl: channel.channelUrl, coverUrl: channel.coverUrl!))
                 }
 
                 if self.openChannelQuery?.hasNext == true {
@@ -217,6 +228,21 @@ class SBManager: NSObject, SBDConnectionDelegate, SBDUserEventDelegate, SBDChann
             })
     }
     
+    func enterOpenChannels(channelUrl: String, completion: @escaping(Bool) -> ()) {
+        SBDOpenChannel.getWithUrl(channelUrl, completionHandler: { (openChannel, error) in
+            guard error == nil else {   // Error.
+                completion(false)
+                return
+            }
+            openChannel?.enter(completionHandler: { (error) in
+               guard error == nil else {   // Error.
+                   completion(false)
+                   return
+               }
+               completion(true)
+            })
+        })
+    }
     
     // MARK: - Message list query
     func createMessageListQuery(isOpenChannel:Bool, channelUrl: String, completion: @escaping(Bool) -> ()) {
@@ -264,9 +290,7 @@ class SBManager: NSObject, SBDConnectionDelegate, SBDUserEventDelegate, SBDChann
                 completion(true)
             } else {
                 for message in messages! {
-                    let model = ChatModel()
-                    model.setMessage(sbMessage: message)
-                    self.chatModel.lists.append(model)
+                    self.chatModel.lists.append(SBManager.convertToChatModel(sbMessage: message))
                 }
                 self.loadPreviousMessages(previousMessageQuery: previousMessageQuery, completion:completion)
             }
@@ -282,6 +306,28 @@ class SBManager: NSObject, SBDConnectionDelegate, SBDUserEventDelegate, SBDChann
                 guard error == nil else {   // Error.
                     return
                 }
+                
+                let params = SBDUserMessageParams(message: message)
+                //params.customType = CUSTOM_TYPE
+                //params.data = DATA
+                //params.mentionType = SBDMentionTypeUsers        // Either SBDMentionTypeUsers or SBDMentionTypeChannel
+                params!.mentionedUserIds = ["Jeff", "Julia"]     // Or .mentionedUsers = LIST_OF_USERS_TO_MENTION
+                params!.metaArrayKeys = ["linkTo", "itemType"]
+                params!.targetLanguages = ["fr", "de"]           // French and German
+                params!.pushNotificationDeliveryOption = .default
+
+                openChannel!.sendUserMessage(with: params!, completionHandler: { (userMessage, error) in
+                    guard error == nil else {   // Error.
+                        return
+                    }
+                    
+                   //UI 리스트에 추가...
+                   self.chatModel.lists.append(SBManager.convertToChatModel(sbMessage: userMessage!))
+
+                   completion(true)
+                    
+                })
+                
             })
         } else {
             SBDGroupChannel.getWithUrl(channelUrl, completionHandler: { (groupChannel, error) in
@@ -307,9 +353,7 @@ class SBManager: NSObject, SBDConnectionDelegate, SBDUserEventDelegate, SBDChann
                     }
                     
                     //UI 리스트에 추가...
-                    let model = ChatModel()
-                    model.setMessage(sbMessage: userMessage!)
-                    self.chatModel.lists.append(model)
+                    self.chatModel.lists.append(SBManager.convertToChatModel(sbMessage: userMessage!))
  
                     completion(true)
                 })
@@ -384,9 +428,7 @@ class SBManager: NSObject, SBDConnectionDelegate, SBDUserEventDelegate, SBDChann
     func channel(_ sender: SBDBaseChannel, didReceive message: SBDBaseMessage) {
         print("SBDConnectionDelegate didReceive")
         //UI 리스트에 추가...
-        let model = ChatModel()
-        model.setMessage(sbMessage: message)
-        self.chatModel.lists.append(model)
+        self.chatModel.lists.append(SBManager.convertToChatModel(sbMessage: message))
     }
 
     func channel(_ sender: SBDBaseChannel, didUpdate message: SBDBaseMessage) {
@@ -510,7 +552,7 @@ class SBManager: NSObject, SBDConnectionDelegate, SBDUserEventDelegate, SBDChann
                 // TODO: Add channels to the view.
                 print("SBSMChannelCollection insert")
                 for channel in channels {
-                    self.gropuChannelSyncModel.lists.append(GroupChannelSyncModel(id: channel.channelUrl, name: channel.name, channelUrl: channel.channelUrl))
+                    self.gropuChannelSyncModel.lists.append(GroupChannelSyncModel(id: channel.channelUrl, name: channel.name, channelUrl: channel.channelUrl, coverUrl: channel.coverUrl!))
                 }
                 break
             case .update:

@@ -32,7 +32,7 @@
 		33510C40243428D100E6874E /* UserListItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33510C3F243428D100E6874E /* UserListItemRow.swift */; };
 		33510C422434C95A00E6874E /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33510C412434C95A00E6874E /* UserModel.swift */; };
 		33510C442434C96700E6874E /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33510C432434C96700E6874E /* UserViewModel.swift */; };
-		33510C49243C1F7700E6874E /* GroupChanneljSyncList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33510C48243C1F7700E6874E /* GroupChanneljSyncList.swift */; };
+		33510C49243C1F7700E6874E /* GroupChannelSyncList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33510C48243C1F7700E6874E /* GroupChannelSyncList.swift */; };
 		33510C4B243C1F8B00E6874E /* GroupChannelSyncViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33510C4A243C1F8B00E6874E /* GroupChannelSyncViewModel.swift */; };
 		33510C4D243C214300E6874E /* OpenChannelList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33510C4C243C214300E6874E /* OpenChannelList.swift */; };
 		33510C4F243C217E00E6874E /* OpenChannelListItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33510C4E243C217E00E6874E /* OpenChannelListItemRow.swift */; };
@@ -56,7 +56,13 @@
 		33510CAB2444680300E6874E /* VideoCallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33510CAA2444680300E6874E /* VideoCallViewModel.swift */; };
 		33510CAD2445976700E6874E /* VoiceCallModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33510CAC2445976700E6874E /* VoiceCallModel.swift */; };
 		33510CAF24459B5300E6874E /* VideoCallModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33510CAE24459B5300E6874E /* VideoCallModel.swift */; };
-		338F61AA244D7A1500A50E05 /* ContentMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338F61A9244D7A1500A50E05 /* ContentMessageView.swift */; };
+		338F61AA244D7A1500A50E05 /* SendMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338F61A9244D7A1500A50E05 /* SendMessageView.swift */; };
+		338F61AD244DD25100A50E05 /* CustomScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338F61AC244DD25100A50E05 /* CustomScrollView.swift */; };
+		338F61AF244DD53F00A50E05 /* SBManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338F61AE244DD53F00A50E05 /* SBManager+Extension.swift */; };
+		338F61B1244ECAB100A50E05 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338F61B0244ECAB100A50E05 /* AvatarView.swift */; };
+		338F61B4244ECEEA00A50E05 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338F61B3244ECEEA00A50E05 /* ImageLoader.swift */; };
+		338F61B8244F390300A50E05 /* ReceiveMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338F61B7244F390300A50E05 /* ReceiveMessageView.swift */; };
+		338F61BA244F396A00A50E05 /* AdminMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338F61B9244F396A00A50E05 /* AdminMessageView.swift */; };
 		58C043B5F96A7D0A5E2D5F71 /* Pods_SolEng_iOS_DemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCE7CE4BEC4AF4280A09F1D3 /* Pods_SolEng_iOS_DemoUITests.framework */; };
 		963003946B48B88B45510B2D /* Pods_SolEng_iOS_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8D0C4E57210FD0A25C483DB /* Pods_SolEng_iOS_Demo.framework */; };
 		B8841BE1A973A78C25E8F75B /* Pods_SolEng_iOS_DemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91923C16FE34C0AE121E4C5C /* Pods_SolEng_iOS_DemoTests.framework */; };
@@ -112,7 +118,7 @@
 		33510C3F243428D100E6874E /* UserListItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListItemRow.swift; sourceTree = "<group>"; };
 		33510C412434C95A00E6874E /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		33510C432434C96700E6874E /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
-		33510C48243C1F7700E6874E /* GroupChanneljSyncList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupChanneljSyncList.swift; sourceTree = "<group>"; };
+		33510C48243C1F7700E6874E /* GroupChannelSyncList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupChannelSyncList.swift; sourceTree = "<group>"; };
 		33510C4A243C1F8B00E6874E /* GroupChannelSyncViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupChannelSyncViewModel.swift; sourceTree = "<group>"; };
 		33510C4C243C214300E6874E /* OpenChannelList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenChannelList.swift; sourceTree = "<group>"; };
 		33510C4E243C217E00E6874E /* OpenChannelListItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenChannelListItemRow.swift; sourceTree = "<group>"; };
@@ -137,7 +143,13 @@
 		33510CAA2444680300E6874E /* VideoCallViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCallViewModel.swift; sourceTree = "<group>"; };
 		33510CAC2445976700E6874E /* VoiceCallModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceCallModel.swift; sourceTree = "<group>"; };
 		33510CAE24459B5300E6874E /* VideoCallModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCallModel.swift; sourceTree = "<group>"; };
-		338F61A9244D7A1500A50E05 /* ContentMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentMessageView.swift; sourceTree = "<group>"; };
+		338F61A9244D7A1500A50E05 /* SendMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendMessageView.swift; sourceTree = "<group>"; };
+		338F61AC244DD25100A50E05 /* CustomScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomScrollView.swift; sourceTree = "<group>"; };
+		338F61AE244DD53F00A50E05 /* SBManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SBManager+Extension.swift"; sourceTree = "<group>"; };
+		338F61B0244ECAB100A50E05 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
+		338F61B3244ECEEA00A50E05 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		338F61B7244F390300A50E05 /* ReceiveMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveMessageView.swift; sourceTree = "<group>"; };
+		338F61B9244F396A00A50E05 /* AdminMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminMessageView.swift; sourceTree = "<group>"; };
 		5318F34E6BCAC29580F8C609 /* Pods-SolEng_iOS_DemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SolEng_iOS_DemoUITests.debug.xcconfig"; path = "Target Support Files/Pods-SolEng_iOS_DemoUITests/Pods-SolEng_iOS_DemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		91923C16FE34C0AE121E4C5C /* Pods_SolEng_iOS_DemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SolEng_iOS_DemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9438B396EC5C0B296425A550 /* Pods-SolEng_iOS_Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SolEng_iOS_Demo.release.xcconfig"; path = "Target Support Files/Pods-SolEng_iOS_Demo/Pods-SolEng_iOS_Demo.release.xcconfig"; sourceTree = "<group>"; };
@@ -202,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				33510C90243F092F00E6874E /* SolEng_iOS_Demo.entitlements */,
+				338F61B2244ECED100A50E05 /* Utils */,
 				33510C30242AEBE100E6874E /* SBManager */,
 				3303C182242857E000C2EC7D /* UIViewModifier */,
 				3303C181242857C100C2EC7D /* SBChat */,
@@ -249,6 +262,7 @@
 		3303C181242857C100C2EC7D /* SBChat */ = {
 			isa = PBXGroup;
 			children = (
+				338F61AB244DD22E00A50E05 /* Custom */,
 				338F61A8244D799500A50E05 /* ChatContents */,
 				33510C8F243EE1C500E6874E /* Call */,
 				33510C3A2434107700E6874E /* Users */,
@@ -284,7 +298,7 @@
 		33510C2F242AEBC900E6874E /* GroupChannelSync */ = {
 			isa = PBXGroup;
 			children = (
-				33510C48243C1F7700E6874E /* GroupChanneljSyncList.swift */,
+				33510C48243C1F7700E6874E /* GroupChannelSyncList.swift */,
 				33510C33242DB12900E6874E /* GroupChannelSyncListItemRow.swift */,
 				33510C38243321A600E6874E /* GroupChannelSyncModel.swift */,
 				33510C4A243C1F8B00E6874E /* GroupChannelSyncViewModel.swift */,
@@ -296,6 +310,7 @@
 			isa = PBXGroup;
 			children = (
 				33510C31242AEBFF00E6874E /* SBManager.swift */,
+				338F61AE244DD53F00A50E05 /* SBManager+Extension.swift */,
 			);
 			path = SBManager;
 			sourceTree = "<group>";
@@ -380,9 +395,28 @@
 		338F61A8244D799500A50E05 /* ChatContents */ = {
 			isa = PBXGroup;
 			children = (
-				338F61A9244D7A1500A50E05 /* ContentMessageView.swift */,
+				338F61A9244D7A1500A50E05 /* SendMessageView.swift */,
+				338F61B7244F390300A50E05 /* ReceiveMessageView.swift */,
+				338F61B9244F396A00A50E05 /* AdminMessageView.swift */,
 			);
 			path = ChatContents;
+			sourceTree = "<group>";
+		};
+		338F61AB244DD22E00A50E05 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				338F61AC244DD25100A50E05 /* CustomScrollView.swift */,
+				338F61B0244ECAB100A50E05 /* AvatarView.swift */,
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
+		338F61B2244ECED100A50E05 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				338F61B3244ECEEA00A50E05 /* ImageLoader.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		559DD11D9FAB04D2B426B487 /* Frameworks */ = {
@@ -630,24 +664,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				15AEBA42241FC8BF00241E4B /* AppDelegate.swift in Sources */,
+				338F61BA244F396A00A50E05 /* AdminMessageView.swift in Sources */,
 				33510CAF24459B5300E6874E /* VideoCallModel.swift in Sources */,
 				33510CA02444609000E6874E /* Data+Extension.swift in Sources */,
 				33510C3C243428A900E6874E /* UserUIView.swift in Sources */,
 				15AEBA44241FC8BF00241E4B /* SceneDelegate.swift in Sources */,
+				338F61AF244DD53F00A50E05 /* SBManager+Extension.swift in Sources */,
 				331A3A082448AC27003EFC23 /* ViewRouter.swift in Sources */,
 				33510CA72444667100E6874E /* DirectCallDataSource.swift in Sources */,
-				33510C49243C1F7700E6874E /* GroupChanneljSyncList.swift in Sources */,
+				33510C49243C1F7700E6874E /* GroupChannelSyncList.swift in Sources */,
 				33510CA32444664900E6874E /* VoiceCallUIView.swift in Sources */,
 				33510CA9244467F400E6874E /* VoiceCallViewModel.swift in Sources */,
 				3303C1892428B7D700C2EC7D /* MainViewListItem.swift in Sources */,
 				33510C8C243ECB6F00E6874E /* GroupChannelModel.swift in Sources */,
 				33510C9E24443CB500E6874E /* UserDefaults+SolEng.swift in Sources */,
 				33510C2B2429C21600E6874E /* MainViewListItemRow.swift in Sources */,
+				338F61AD244DD25100A50E05 /* CustomScrollView.swift in Sources */,
 				33510C4F243C217E00E6874E /* OpenChannelListItemRow.swift in Sources */,
 				3303C17E24284F7600C2EC7D /* LoginView.swift in Sources */,
 				33510C4B243C1F8B00E6874E /* GroupChannelSyncViewModel.swift in Sources */,
 				33510C942444032D00E6874E /* AppDelegate+SendBirdCallsDelegates.swift in Sources */,
 				33510CA52444665D00E6874E /* VideoCallUIView.swift in Sources */,
+				338F61B4244ECEEA00A50E05 /* ImageLoader.swift in Sources */,
 				33510C372433215600E6874E /* ChatUIView.swift in Sources */,
 				33510CAB2444680300E6874E /* VideoCallViewModel.swift in Sources */,
 				33510C34242DB12900E6874E /* GroupChannelSyncListItemRow.swift in Sources */,
@@ -660,9 +698,11 @@
 				33510CAD2445976700E6874E /* VoiceCallModel.swift in Sources */,
 				331A3A0C2448B1E7003EFC23 /* ChatItemRow.swift in Sources */,
 				33510C442434C96700E6874E /* UserViewModel.swift in Sources */,
+				338F61B8244F390300A50E05 /* ReceiveMessageView.swift in Sources */,
 				33510C92244402E900E6874E /* Appdelegate+CXProviderDelegate.swift in Sources */,
+				338F61B1244ECAB100A50E05 /* AvatarView.swift in Sources */,
 				33510C97244403BC00E6874E /* CXProvider.swift in Sources */,
-				338F61AA244D7A1500A50E05 /* ContentMessageView.swift in Sources */,
+				338F61AA244D7A1500A50E05 /* SendMessageView.swift in Sources */,
 				33510C99244403EE00E6874E /* CXCallControllerManager.swift in Sources */,
 				33510C32242AEBFF00E6874E /* SBManager.swift in Sources */,
 				331A3A0E2448B215003EFC23 /* ChatModel.swift in Sources */,
