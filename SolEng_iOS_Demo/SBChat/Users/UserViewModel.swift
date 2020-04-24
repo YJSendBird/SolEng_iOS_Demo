@@ -10,13 +10,8 @@ import Foundation
 import SwiftUI
 import Combine
 
-final class UserViewModel {
-    var users = [UserModel]() {
-        didSet {
-            didChange.send(self)
-        }
-    }
-    
-    let didChange = PassthroughSubject<UserViewModel, Never>()
+final class UserViewModel: ObservableObject {
+    @Published var users = [UserModel]()
 }
+
 

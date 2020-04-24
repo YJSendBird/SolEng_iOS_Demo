@@ -17,8 +17,8 @@ class SBManager: NSObject, SBDConnectionDelegate, SBDUserEventDelegate, SBDChann
     static let UNIQUE_DELEGATE_ID = "SBManager"
     
     static let APP_ID = "9DA1B1F4-0BE6-4DA8-82C5-2E81DAB56F23"        //Sample
-    //static let APP_ID = "A5192321-42DA-4ADC-8A75-6311D24BF4FE"        //SendBird-Calls-Playground
-    //static let APP_ID = "521FF53A-352D-4802-A285-F176C21BB825"          //My Sample - With Call
+    //static let APP_ID = "A5192321-42DA-4ADC-8A75-6311D24BF4FE"      //SendBird-Calls-Playground
+    //static let APP_ID = "521FF53A-352D-4802-A285-F176C21BB825"      //My Sample - With Call
     
 
     private var userListQuery:SBDApplicationUserListQuery?
@@ -65,6 +65,28 @@ class SBManager: NSObject, SBDConnectionDelegate, SBDUserEventDelegate, SBDChann
                 print(error.debugDescription)
                 completion(false)
                 return
+            }
+
+            //푸시 토큰 등록
+            
+            if UserDefaults.standard.pushTokenChange! {
+                if UserDefaults.standard.pushToken != nil {
+                    SBDMain.registerDevicePushToken(UserDefaults.standard.pushToken!, unique: false) { (status, error) in
+                        if error == nil {
+                            if status == SBDPushTokenRegistrationStatus.pending {
+                                // A token registration is pending.
+                                // If this status is returned, invoke `+ registerDevicePushToken:unique:completionHandler:` with `[SBDMain getPendingPushToken]` after connection.
+                            }
+                            else {
+                                // A device token is successfully registered.
+                                UserDefaults.standard.pushTokenChange = false
+                            }
+                        }
+                        else {
+                            // Registration failure.
+                        }
+                    }
+                }
             }
 
             UserDefaults.standard.user.id = userId

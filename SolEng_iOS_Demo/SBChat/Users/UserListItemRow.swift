@@ -7,11 +7,16 @@
 //
 
 import SwiftUI
+import Combine
 
 struct UserListItemRow: View {
-    var user:UserModel
-    let size: CGFloat = 40
 
+    var user:UserModel
+    let size: CGFloat = 35
+    @State var chatOn = false
+    @State var voiceOn = false
+    @State var videoOn = false
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             VStack(alignment: .leading) {
@@ -23,26 +28,37 @@ struct UserListItemRow: View {
                         // post time
                         Text(user.id).font(.subheadline)
                     }
-                    
+                }
+                HStack(spacing: 10) {
                     Spacer()
-                    
+                    NavigationLink(destination: ChatUIView(isOpenChat:false, userId: user.id, name: user.name), isActive: $chatOn) {
+                        EmptyView()
+                    }.frame(width: 0, height: 0)
+                    NavigationLink(destination: VoiceCallUIView(), isActive: $voiceOn) {
+                        EmptyView()
+                    }.frame(width: 0, height: 0)
+                    NavigationLink(destination: VideoCallUIView(), isActive: $videoOn) {
+                        EmptyView()
+                    }.frame(width: 0, height: 0)
+
                     Image("icLogoInverse01") .renderingMode(Image.TemplateRenderingMode?.init(Image.TemplateRenderingMode.original))
                         .resizable()
                         .frame(width: size, height: size)
-                        .onTapGesture { print("Chat button pressed") }
-                    
+                        .onTapGesture {
+                            self.chatOn = true
+                    }
                     Image("btnCallVoice") .renderingMode(Image.TemplateRenderingMode?.init(Image.TemplateRenderingMode.original))
                         .resizable()
                         .frame(width: size, height: size)
                         .onTapGesture {
-                            print("Voice button pressed")
-                        }
-                    
+                            self.voiceOn = true
+                    }
                     Image("btnCallVideo") .renderingMode(Image.TemplateRenderingMode?.init(Image.TemplateRenderingMode.original))
                         .resizable()
                         .frame(width: size, height: size)
-                        .onTapGesture { print("Video button pressed") }
-                    
+                        .onTapGesture {
+                            self.videoOn = true
+                    }
                 }
             }
             .padding(.leading, 10)  // spacing from left edge of the view

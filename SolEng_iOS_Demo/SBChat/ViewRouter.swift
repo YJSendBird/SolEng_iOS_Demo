@@ -17,13 +17,7 @@ class ViewRouter: ObservableObject {
          static let loginView = "loginView"
     }
     
-    var currentPage = String() {
-        didSet {
-            didChange.send(self)
-        }
-    }
+    @Published var currentPage = PageEnum.loginView
 
-    let didChange = PassthroughSubject<ViewRouter, Never>()
-    
 }
 

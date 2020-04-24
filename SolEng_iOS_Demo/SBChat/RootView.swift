@@ -10,11 +10,16 @@ import SwiftUI
     
 struct RootView: View {
 
-    @ObservedObject var viewRouter: ViewRouter
+    @ObservedObject var viewRouter = SBManager.shared().viewRouter
 
     var body: some View {
         VStack {
-            viewRouter.currentPage.count > 0 ? AnyView(MainView()) : AnyView(LoginView())
+            if viewRouter.currentPage == ViewRouter.PageEnum.loginView {
+                AnyView(LoginView())
+            } else { //MainView
+                AnyView(MainView())
+            }
+            //viewRouter.currentPage.count > 0 ? AnyView(MainView()) : AnyView(LoginView())
         }
     }
 }

@@ -26,7 +26,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options:[.badge, .alert, .sound]) { (granted, error) in
+            // If granted comes true you can enabled features based on authorization.
+            guard granted else { return }
+            application.registerForRemoteNotifications()
+        }
         return true
+    }
+
+    // MARK: register remote notification
+    private func application(application: UIApplication,didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        //send this device token to server
+        print("didRegisterForRemoteNotificationsWithDeviceToken")
+
+        let token = deviceToken as Data
+        if UserDefaults.standard.pushToken != token {
+            UserDefaults.standard.pushTokenChange = true
+            UserDefaults.standard.pushToken = token
+        }
+    }
+
+    //Called if unable to register for APNS.
+    private func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+        print("didFailToRegisterForRemoteNotificationsWithError")
     }
 
     // MARK: UISceneSession Lifecycle

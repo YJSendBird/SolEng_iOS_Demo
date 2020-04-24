@@ -10,21 +10,16 @@ import SwiftUI
 
 struct UserUIView: View {
     
-    @State var models = SBManager.shared().userModel
-    
+    @ObservedObject var models = SBManager.shared().userModel
+
     var body: some View {
-        List(models.users) { user in
-            NavigationLink(destination: ChatUIView(isOpenChat:false, userId: user.id, name: user.name)) {
-                UserListItemRow(user : user)
+
+            List(models.users) { user in
+                //NavigationLink(destination: ChatUIView(isOpenChat:false, userId: user.id, name: user.name)) {
+                    UserListItemRow(user : user)
+                //}
             }
-        }
-        .navigationBarTitle(Text("Users"))
-//        .navigationBarItems(trailing:
-//            HStack {
-//                Button("Add") {
-//                    print("Add tapped!")
-//                }
-//        })
+            .navigationBarTitle(Text("Users"))
     }
 }
 

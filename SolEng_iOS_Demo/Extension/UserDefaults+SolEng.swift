@@ -25,7 +25,7 @@ extension UserDefaults {
             userDefault.setValue(newValue.profile, forKey: "user.profile")
         }
     }
-    
+
     var autoLogin: Bool {
         get {
             return UserDefaults.standard.value(forKey: "com.sendbird.calls.quickstart.autologin") as? Bool ?? false
@@ -34,7 +34,7 @@ extension UserDefaults {
             UserDefaults.standard.setValue(newValue, forKey: "com.sendbird.calls.quickstart.autologin")
         }
     }
-    
+
     var accessToken: String? {
         get {
             guard let accessToken = UserDefaults.standard.value(forKey: "com.sendbird.calls.quickstart.accesstoken") as? String else {
@@ -46,7 +46,7 @@ extension UserDefaults {
             UserDefaults.standard.setValue(newValue, forKey: "com.sendbird.calls.quickstart.accesstoken")
         }
     }
-    
+
     var voipPushToken: Data? {
         get {
             guard let pushToken = UserDefaults.standard.value(forKey: "com.sendbird.calls.quickstart.pushtoken.voip") as? Data else { return nil }
@@ -56,6 +56,26 @@ extension UserDefaults {
             UserDefaults.standard.setValue(newValue, forKey: "com.sendbird.calls.quickstart.pushtoken.voip")
         }
     }
+
+    var pushToken: Data? {
+        get {
+            guard let pushToken = UserDefaults.standard.value(forKey: "com.sendbird.calls.quickstart.pushtoken") as? Data else { return nil }
+            return pushToken
+        }
+        set {
+            UserDefaults.standard.setValue(newValue, forKey: "com.sendbird.calls.quickstart.pushtoken")
+        }
+    }
+    var pushTokenChange: Bool? {
+        get {
+            guard let pushToken = UserDefaults.standard.value(forKey: "com.sendbird.calls.quickstart.pushtokenchange") as? Bool else { return false }
+            return pushToken
+        }
+        set {
+            UserDefaults.standard.setValue(newValue, forKey: "com.sendbird.calls.quickstart.pushtokenchange")
+        }
+    }
+    
 }
 
 extension UserDefaults {

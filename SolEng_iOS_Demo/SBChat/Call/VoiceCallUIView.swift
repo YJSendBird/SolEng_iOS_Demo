@@ -20,8 +20,8 @@ struct VoiceCallUIView: View {
     }
 }
 
-struct VoiceCallUIView_Previews: PreviewProvider {
-    static var previews: some View {
-        VoiceCallUIView(models: VoiceCallViewModel())
-    }
-}
+//struct VoiceCallUIView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        VoiceCallUIView(models: VoiceCallViewModel())
+//    }
+//}

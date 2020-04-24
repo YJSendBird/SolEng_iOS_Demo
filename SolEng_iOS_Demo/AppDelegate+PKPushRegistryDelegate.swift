@@ -25,7 +25,6 @@ extension AppDelegate: PKPushRegistryDelegate {
     func pushRegistry(_ registry: PKPushRegistry, didUpdate pushCredentials: PKPushCredentials, for type: PKPushType) {
         UserDefaults.standard.voipPushToken = pushCredentials.token
         print("Push token is \(pushCredentials.token.toHexString())")
-        
         SendBirdCall.registerVoIPPush(token: pushCredentials.token, unique: true) { error in
             guard error == nil else { return }
             // Even if an error occurs, SendBirdCalls will save the pushToken value and reinvoke this method internally while authenticating.
