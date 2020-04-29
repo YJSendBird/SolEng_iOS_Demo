@@ -47,6 +47,13 @@ struct MainView: View {
                         SBManager.shared().logOut()
                     }
             })
+            .navigationBarItems(leading:
+                HStack {
+                Button(UserDefaults.standard.user.id) {
+                        //SBManager.shared().logOut()
+                    }
+            })
+
         }
     }
 }

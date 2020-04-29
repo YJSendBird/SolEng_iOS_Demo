@@ -11,7 +11,7 @@ import SwiftUI
 import Combine
 
 final class VoiceCallViewModel {
-    var models = VoiceCallModel(id: "", name: "") {
+    var model = VoiceCallModel() {
         didSet {
             didChange.send(self)
         }

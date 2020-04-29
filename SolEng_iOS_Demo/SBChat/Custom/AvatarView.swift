@@ -16,12 +16,12 @@ struct AvatarView: View {
     @State var image:UIImage = UIImage()
 
     init(url:String) {
-        //print("AvatarView Url = ", url)
+        print("AvatarView Url = ", url)
         imageLoader = ImageLoader(urlString:url)
     }
 
     var body: some View {
-            Image(uiImage: imageLoader.data != nil ? UIImage(data:imageLoader.data!)! : UIImage())
+        Image(uiImage: /*imageLoader.data != nil ? UIImage(data:imageLoader.data!)! :*/ UIImage(named: "iconAvatar")!)
             .resizable()
             .frame(width: size, height: size)
             .border(Color.gray.opacity(0.5), width: 0.5)

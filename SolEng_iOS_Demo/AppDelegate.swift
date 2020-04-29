@@ -11,12 +11,14 @@ import CallKit
 import PushKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
     
     var voipRegistry: PKPushRegistry?
-    
+ 
+    let notificationCenter = UNUserNotificationCenter.current()
+
     lazy var provider: CXProvider = {
         let provider = CXProvider.default
         provider.setDelegate(self, queue: .main)
@@ -26,13 +28,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-
-        let center = UNUserNotificationCenter.current()
-        center.requestAuthorization(options:[.badge, .alert, .sound]) { (granted, error) in
+        notificationCenter.delegate = self
+        notificationCenter.requestAuthorization(options:[.badge, .alert, .sound]) { (granted, error) in
             // If granted comes true you can enabled features based on authorization.
             guard granted else { return }
-            application.registerForRemoteNotifications()
+            DispatchQueue.main.async { // Correct
+                application.registerForRemoteNotifications()
+                UserNotiRegister.shared().removeUserNoti()
+             }
         }
+
         return true
     }
 
@@ -67,5 +72,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
+
+    // MARK - UNUserNotificationCenterDelegate
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        print("willPresent")
+        completionHandler(UNNotificationPresentationOptions.init(arrayLiteral: [.alert, .badge]))
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        print("didReceive")
+        //if let customData = response.notification.request.content.userInfo["CustomData"] as? String {
+            //let homeVC = window?.rootViewController?.children[0] as? HomeVC
+            //homeVC?.notificationTappedWith(customData: customData)
+        //}
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, openSettingsFor notification: UNNotification?) {
+        print("openSettingsFor")
+    }
+    
 }
 

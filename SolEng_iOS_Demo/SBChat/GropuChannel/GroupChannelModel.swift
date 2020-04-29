@@ -6,7 +6,6 @@
 //  Copyright © 2020 YongjunChoi. All rights reserved.
 //
 
-
 import SwiftUI
 
 struct GroupChannelModel: Hashable, Codable, Identifiable {

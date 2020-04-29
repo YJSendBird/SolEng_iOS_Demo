@@ -11,7 +11,7 @@ import SwiftUI
 import Combine
 
 final class VideoCallViewModel {
-    var models = VideoCallModel(id: "", name: "") {
+    var model = VideoCallModel() {
         didSet {
             didChange.send(self)
         }

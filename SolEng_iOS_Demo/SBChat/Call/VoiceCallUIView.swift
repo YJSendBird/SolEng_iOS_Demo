@@ -11,17 +11,46 @@ import SwiftUI
 
 struct VoiceCallUIView: View {
     
-    @State var models = VoiceCallViewModel()
+    let size: CGFloat = 35
+    
+    @State var viewModel = VoiceCallViewModel()
     
     var body: some View {
-        HStack(alignment: .center) {
-            Text("")
+        VStack(alignment: .center, spacing: 10) {
+
+            Text(viewModel.model.userId)
+            Text("callTimer")
+
+            HStack(alignment: .center) {
+
+                Image("btnSpeaker") .renderingMode(Image.TemplateRenderingMode?.init(Image.TemplateRenderingMode.original))
+                    .resizable()
+                    .frame(width: size, height: size)
+                    .onTapGesture {
+                        
+                    }
+
+                Image("btnVideoOff") .renderingMode(Image.TemplateRenderingMode?.init(Image.TemplateRenderingMode.original))
+                    .resizable()
+                    .frame(width: size, height: size)
+                    .onTapGesture {
+                        
+                    }
+                
+                Image("btnCallEnd") .renderingMode(Image.TemplateRenderingMode?.init(Image.TemplateRenderingMode.original))
+                    .resizable()
+                    .frame(width: size, height: size)
+                    .onTapGesture {
+                        
+                    }
+            }
+
         }.navigationBarTitle(Text("VoiceCall"))
     }
 }
 
-//struct VoiceCallUIView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        VoiceCallUIView(models: VoiceCallViewModel())
-//    }
-//}
+struct VoiceCallUIView_Previews: PreviewProvider {
+    static var previews: some View {
+        VoiceCallUIView(viewModel: VoiceCallViewModel())
+    }
+}

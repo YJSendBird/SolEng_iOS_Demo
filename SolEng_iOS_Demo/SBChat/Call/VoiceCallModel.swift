@@ -6,10 +6,13 @@
 //  Copyright © 2020 YongjunChoi. All rights reserved.
 //
 
-import Foundation
+import SwiftUI
 
 struct VoiceCallModel: Hashable, Codable, Identifiable {
-    public var id: String
-    public var name: String
+    var id: String = ""
+    public var userId: String = ""
+    public var userName: String = ""
+    public var avatar: String = ""
+    public var isDialing: Bool = false
 }
 

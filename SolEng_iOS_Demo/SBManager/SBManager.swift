@@ -16,8 +16,8 @@ class SBManager: NSObject, SBDConnectionDelegate, SBDUserEventDelegate, SBDChann
     // MARK: - Properties
     static let UNIQUE_DELEGATE_ID = "SBManager"
     
-    static let APP_ID = "9DA1B1F4-0BE6-4DA8-82C5-2E81DAB56F23"        //Sample
-    //static let APP_ID = "A5192321-42DA-4ADC-8A75-6311D24BF4FE"      //SendBird-Calls-Playground
+    //static let APP_ID = "9DA1B1F4-0BE6-4DA8-82C5-2E81DAB56F23"        //Sample
+    static let APP_ID = "A5192321-42DA-4ADC-8A75-6311D24BF4FE"      //SendBird-Calls-Playground
     //static let APP_ID = "521FF53A-352D-4802-A285-F176C21BB825"      //My Sample - With Call
     
 
@@ -34,6 +34,7 @@ class SBManager: NSObject, SBDConnectionDelegate, SBDUserEventDelegate, SBDChann
     public var openChannelModel = OpenChannelViewModel()
     public var userModel = UserViewModel()
     public var chatModel = ChatViewModel()
+    public var directCall: DirectCall?
 
     private static var sharedManager: SBManager = {
         let shared = SBManager()
@@ -66,9 +67,7 @@ class SBManager: NSObject, SBDConnectionDelegate, SBDUserEventDelegate, SBDChann
                 completion(false)
                 return
             }
-
             //푸시 토큰 등록
-            
             if UserDefaults.standard.pushTokenChange! {
                 if UserDefaults.standard.pushToken != nil {
                     SBDMain.registerDevicePushToken(UserDefaults.standard.pushToken!, unique: false) { (status, error) in
@@ -76,6 +75,7 @@ class SBManager: NSObject, SBDConnectionDelegate, SBDUserEventDelegate, SBDChann
                             if status == SBDPushTokenRegistrationStatus.pending {
                                 // A token registration is pending.
                                 // If this status is returned, invoke `+ registerDevicePushToken:unique:completionHandler:` with `[SBDMain getPendingPushToken]` after connection.
+                                completion(false)
                             }
                             else {
                                 // A device token is successfully registered.
@@ -89,11 +89,21 @@ class SBManager: NSObject, SBDConnectionDelegate, SBDUserEventDelegate, SBDChann
                 }
             }
 
-            UserDefaults.standard.user.id = userId
+            UserDefaults.standard.autoLogin = true
+            UserDefaults.standard.user = (user!.userId, user!.nickname, nil)
+            print("connect success")
+            
             self.initViewModel()
             self.syncViewModel()
             self.viewRouter.currentPage = ViewRouter.PageEnum.mainView
-            completion(true)
+            //Video Audio Server
+            self.signIn(userId: userId) { (result) in
+                if result {
+                    print("authenticate success")
+                    completion(true)
+                }
+            }
+
         })
     }
 
@@ -147,10 +157,12 @@ class SBManager: NSObject, SBDConnectionDelegate, SBDUserEventDelegate, SBDChann
                 return
             }
 
+            for user in users! {
+                self.userModel.users.removeAll(where: { user.userId == $0.id})
+                self.userModel.users.append(UserModel(id: user.userId, name: user.nickname!, avatar: user.profileUrl!))
+            }
+
             if self.userListQuery?.hasNext == true {
-                for user in users! {
-                    self.userModel.users.append(UserModel(id: user.userId, name: user.nickname!, avatar: user.profileUrl!))
-                }
                 //반복해서 읽어오기
                 self.getUsers()
             }
@@ -450,6 +462,7 @@ class SBManager: NSObject, SBDConnectionDelegate, SBDUserEventDelegate, SBDChann
     func channel(_ sender: SBDBaseChannel, didReceive message: SBDBaseMessage) {
         print("SBDConnectionDelegate didReceive")
         //UI 리스트에 추가...
+        UserNotiRegister.shared().registUserNoti(sbMessage: message)
         self.chatModel.lists.append(SBManager.convertToChatModel(sbMessage: message))
     }
 
@@ -467,6 +480,17 @@ class SBManager: NSObject, SBDConnectionDelegate, SBDUserEventDelegate, SBDChann
 
     func channelWasChanged(_ sender: SBDBaseChannel) {
         print("SBDConnectionDelegate channelWasChanged")
+        if sender is SBDGroupChannel {
+            //TODO 이미 있으면 지우고 업데이트
+            let model = GroupChannelModel(id: sender.channelUrl, name: sender.name, channelUrl: sender.channelUrl, coverUrl: sender.coverUrl!)
+            self.groupChannelModel.lists.removeAll(where: { model.channelUrl == $0.channelUrl})
+            self.groupChannelModel.lists.append(model)
+        } else {
+            //이미 있으면 지우고 업데이트
+            let model = OpenChannelModel(id: sender.channelUrl, name: sender.name, channelUrl: sender.channelUrl, coverUrl: sender.coverUrl!)
+            self.openChannelModel.lists.removeAll(where: { model.channelUrl == $0.channelUrl})
+            self.openChannelModel.lists.append(model)
+        }
     }
 
     func channelWasDeleted(_ channelUrl: String, channelType: SBDChannelType) {

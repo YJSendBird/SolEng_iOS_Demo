@@ -9,12 +9,40 @@ import SwiftUI
 
 struct VideoCallUIView: View {
     
-    @State var models = VideoCallViewModel()
+    let size: CGFloat = 35
+    
+    @State var viewModel = VideoCallViewModel()
     
     var body: some View {
-        HStack(alignment: .center) {
-            Text("")
-        }.navigationBarTitle(Text("VideoCall"))
+        VStack(alignment: .center, spacing: 10) {
+                   Text(viewModel.model.userId)
+                   Text("callTimer")
+
+                   HStack(alignment: .center) {
+
+                       Image("btnSpeaker") .renderingMode(Image.TemplateRenderingMode?.init(Image.TemplateRenderingMode.original))
+                           .resizable()
+                           .frame(width: size, height: size)
+                           .onTapGesture {
+                               
+                           }
+
+                       Image("btnAudioOff") .renderingMode(Image.TemplateRenderingMode?.init(Image.TemplateRenderingMode.original))
+                           .resizable()
+                           .frame(width: size, height: size)
+                           .onTapGesture {
+                               
+                           }
+                       
+                       Image("btnCallEnd") .renderingMode(Image.TemplateRenderingMode?.init(Image.TemplateRenderingMode.original))
+                           .resizable()
+                           .frame(width: size, height: size)
+                           .onTapGesture {
+                               
+                           }
+                   }
+
+               }.navigationBarTitle(Text("VoiceCall"))
     }
 }
 

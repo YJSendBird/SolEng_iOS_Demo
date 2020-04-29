@@ -51,13 +51,22 @@ struct UserListItemRow: View {
                         .resizable()
                         .frame(width: size, height: size)
                         .onTapGesture {
-                            self.voiceOn = true
+                            SBManager.shared().doVoiceCall(calleeId: self.user.id) { (result, call) in
+                                if result {
+                                    self.voiceOn = true
+                                }
+                            }
                     }
                     Image("btnCallVideo") .renderingMode(Image.TemplateRenderingMode?.init(Image.TemplateRenderingMode.original))
                         .resizable()
                         .frame(width: size, height: size)
                         .onTapGesture {
-                            self.videoOn = true
+                            SBManager.shared().doVideoCall(calleeId: self.user.id) { (result, call) in
+                                if result {
+                                    self.videoOn = true
+                                }
+                            }
+                            
                     }
                 }
             }
