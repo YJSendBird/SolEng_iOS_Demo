@@ -10,9 +10,15 @@ import SwiftUI
 
 struct VoiceCallModel: Hashable, Codable, Identifiable {
     var id: String = ""
-    public var userId: String = ""
+    public var timer: String = "00:00"
+    public var userId: String = "userId"
     public var userName: String = ""
     public var avatar: String = ""
-    public var isDialing: Bool = false
+    public var remoteUserId: String = "userId"
+    public var remoteUserName: String = "userId"
+    public var remoteAvatar: String = "userId"
+    public var isCalling: Bool = false
+    public var isAudioEnable: Bool = true
+    public var isSpeakerEnable: Bool = true
 }
 

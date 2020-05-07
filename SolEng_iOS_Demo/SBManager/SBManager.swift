@@ -22,6 +22,7 @@ class SBManager: NSObject, SBDConnectionDelegate, SBDUserEventDelegate, SBDChann
     
 
     private var userListQuery:SBDApplicationUserListQuery?
+    private var friendListQuery:SBDFriendListQuery?
     private var groupChannelSyncQuery:SBDGroupChannelListQuery?
     private var groupCollection: SBSMChannelCollection?
     private var groupChannelQuery:SBDGroupChannelListQuery?
@@ -35,6 +36,9 @@ class SBManager: NSObject, SBDConnectionDelegate, SBDUserEventDelegate, SBDChann
     public var userModel = UserViewModel()
     public var chatModel = ChatViewModel()
     public var directCall: DirectCall?
+    
+    public var voiceModel = VoiceCallViewModel()
+    public var videoModel = VideoCallViewModel()
 
     private static var sharedManager: SBManager = {
         let shared = SBManager()
@@ -92,6 +96,9 @@ class SBManager: NSObject, SBDConnectionDelegate, SBDUserEventDelegate, SBDChann
             UserDefaults.standard.autoLogin = true
             UserDefaults.standard.user = (user!.userId, user!.nickname, nil)
             print("connect success")
+
+            // after getting user's ID or login
+            SBSMSyncManager.setup(withUserId: user!.userId)
             
             self.initViewModel()
             self.syncViewModel()
@@ -118,6 +125,9 @@ class SBManager: NSObject, SBDConnectionDelegate, SBDUserEventDelegate, SBDChann
         print("initUsersListQuery")
         initUsersQuery()
         
+        print("initFriendsQuery")
+        initFriendsQuery()
+
         //채널 등록
         print("initGroupChannelSync")
         initGroupChanneSync()
@@ -132,6 +142,9 @@ class SBManager: NSObject, SBDConnectionDelegate, SBDUserEventDelegate, SBDChann
     private func syncViewModel() {
         print("getUsers")
         getUsers()
+        
+        print("getFriends")
+        getFriends()
         
         print("getOpenChannels")
         getOpenChannels()
@@ -168,6 +181,31 @@ class SBManager: NSObject, SBDConnectionDelegate, SBDUserEventDelegate, SBDChann
             }
         })
     }
+    
+    public func initFriendsQuery() {
+        if self.friendListQuery != nil {
+            self.friendListQuery = nil
+        }
+        self.friendListQuery = SBDMain.createFriendListQuery()
+    }
+    
+    public func getFriends() {
+        friendListQuery?.loadNextPage(completionHandler: { (users, error) in
+            guard error == nil else {   // Error.
+                return
+            }
+
+            for user in users! {
+                print(user.friendName!)
+                print(user.friendDiscoveryKey!)
+            }
+
+            if self.friendListQuery?.hasNext == true {
+                //반복해서 읽어오기
+                self.getFriends()
+            }
+        })
+    }
 
     // MARK: - group channel with syncmanager
     private func initGroupChanneSync() {
@@ -188,7 +226,10 @@ class SBManager: NSObject, SBDConnectionDelegate, SBDUserEventDelegate, SBDChann
         }
     }
 
-    private func deinitChannel() {
+    public func deinitChannel() {
+        print("deinitChannel")
+        groupChannelSyncQuery = nil
+        groupCollection = nil
         groupCollection?.remove()
         groupCollection!.delegate = self
     }

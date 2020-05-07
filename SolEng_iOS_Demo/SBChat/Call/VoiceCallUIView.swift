@@ -8,49 +8,84 @@
 
 
 import SwiftUI
+import NotificationCenter
 
 struct VoiceCallUIView: View {
     
-    let size: CGFloat = 35
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
-    @State var viewModel = VoiceCallViewModel()
+    let size: CGFloat = 50
+    
+    @ObservedObject var viewModel = SBManager.shared().voiceModel
     
     var body: some View {
         VStack(alignment: .center, spacing: 10) {
-
             Text(viewModel.model.userId)
-            Text("callTimer")
-
+            Text(viewModel.model.timer)
             HStack(alignment: .center) {
+                if (!viewModel.model.isSpeakerEnable) {
+                    Image("btnSpeaker") .renderingMode(Image.TemplateRenderingMode?.init(Image.TemplateRenderingMode.original))
+                        .resizable()
+                        .frame(width: size, height: size)
+                        .onTapGesture {
+                            print("btnSpeaker pressed")
+                            self.viewModel.model.isSpeakerEnable = true
+                        }
+                } else {
+                    Image("btnSpeakerSelected") .renderingMode(Image.TemplateRenderingMode?.init(Image.TemplateRenderingMode.original))
+                        .resizable()
+                        .frame(width: size, height: size)
+                        .onTapGesture {
+                            print("btnSpeaker pressed")
+                            self.viewModel.model.isSpeakerEnable = false
+                        }
+                }
 
-                Image("btnSpeaker") .renderingMode(Image.TemplateRenderingMode?.init(Image.TemplateRenderingMode.original))
+                if (!viewModel.model.isAudioEnable) {
+                    Image("btnAudioOff") .renderingMode(Image.TemplateRenderingMode?.init(Image.TemplateRenderingMode.original))
                     .resizable()
                     .frame(width: size, height: size)
                     .onTapGesture {
-                        
+                        print("btnAudioOff pressed")
+                        self.viewModel.model.isAudioEnable = true
+                        SBManager.shared().updateLocalAudio(SBManager.shared().directCall!, isEnabled: true)
                     }
-
-                Image("btnVideoOff") .renderingMode(Image.TemplateRenderingMode?.init(Image.TemplateRenderingMode.original))
+                } else {
+                    Image("btnAudioOffSelected") .renderingMode(Image.TemplateRenderingMode?.init(Image.TemplateRenderingMode.original))
                     .resizable()
                     .frame(width: size, height: size)
                     .onTapGesture {
-                        
+                        print("btnAudioOffSelected pressed")
+                        self.viewModel.model.isAudioEnable = false
+                        SBManager.shared().updateLocalAudio(SBManager.shared().directCall!, isEnabled: false)
                     }
-                
+                }
+
                 Image("btnCallEnd") .renderingMode(Image.TemplateRenderingMode?.init(Image.TemplateRenderingMode.original))
                     .resizable()
                     .frame(width: size, height: size)
                     .onTapGesture {
-                        
+                        print("btnCallEnd pressed")
+                        SBManager.shared().callEnd(SBManager.shared().directCall!)
+                        //이전화면으로 이동
+                        self.viewModel.model.isCalling = false
+                        self.presentationMode.wrappedValue.dismiss()
                     }
             }
-
-        }.navigationBarTitle(Text("VoiceCall"))
+        }
+        .navigationBarTitle(Text("VoiceCall"))
+        .onReceive(NotificationCenter.default.publisher(for: NSNotification.CallEnd)){ obj in
+            if let userInfo = obj.userInfo, let info = userInfo["info"] {
+              print(info)
+              self.viewModel.model.isCalling = false
+              self.presentationMode.wrappedValue.dismiss()
+           }
+        }
     }
 }
 
 struct VoiceCallUIView_Previews: PreviewProvider {
     static var previews: some View {
-        VoiceCallUIView(viewModel: VoiceCallViewModel())
+        VoiceCallUIView()
     }
 }

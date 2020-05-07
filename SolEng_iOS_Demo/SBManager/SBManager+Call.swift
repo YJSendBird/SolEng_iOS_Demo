@@ -99,6 +99,12 @@ extension SBManager : DirectCallDelegate {
         print("didConnect")
         //self.activeTimer()      // call.duration
         //self.updateRemoteAudio(isEnabled: call.isRemoteAudioEnabled)
+        if(voiceModel.model.isCalling) {
+            voiceModel.activeTimer(call)
+        } else {
+            videoModel.activeTimer(call)
+        }
+        
     }
     
     func didEnd(_ call: DirectCall) {
@@ -110,9 +116,12 @@ extension SBManager : DirectCallDelegate {
         //    self.dismiss(animated: true, completion: nil)
         //}
         
+        //call 종료
+        
         guard let enderId = call.endedBy?.userId, let myId = SendBirdCall.currentUser?.userId, enderId != myId else { return }
         guard let call = SendBirdCall.getCall(forCallId: call.callId) else { return }
         self.requestEndTransaction(call)
+        NotificationCenter.default.post(name: NSNotification.CallEnd,object: nil, userInfo: ["info": "Test"])
     }
     
     // MARK: Optional Methods
@@ -146,6 +155,25 @@ extension SBManager : DirectCallDelegate {
         //self.speakerButton.setBackgroundImage(UIImage(named: imageName), for: .normal)
         print("[QuickStart] Audio Route has been changed to \(outputName)")
     }
+    
+    //call end...
+    public func callEnd(_ call: DirectCall) {
+        guard let call = SendBirdCall.getCall(forCallId: call.callId) else { return }
+        call.end()
+    }
+    
+    public func updateLocalAudio(_ call: DirectCall, isEnabled: Bool) {
+        if isEnabled {
+            call.muteMicrophone()
+        } else {
+            call.unmuteMicrophone()
+        }
+    }
+    
+    public func updateRemoteAudio(_ call: DirectCall, isEnabled: Bool) {
+
+    }
+    
     
 }
 

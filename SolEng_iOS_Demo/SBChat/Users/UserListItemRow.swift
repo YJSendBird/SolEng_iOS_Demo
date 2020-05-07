@@ -53,7 +53,11 @@ struct UserListItemRow: View {
                         .onTapGesture {
                             SBManager.shared().doVoiceCall(calleeId: self.user.id) { (result, call) in
                                 if result {
-                                    self.voiceOn = true
+                                    DispatchQueue.main.async {
+                                        self.voiceOn = true
+                                        SBManager.shared().voiceModel.model.isCalling = true
+                                        SBManager.shared().voiceModel.model.userId = self.user.id
+                                    }
                                 }
                             }
                     }
@@ -63,7 +67,12 @@ struct UserListItemRow: View {
                         .onTapGesture {
                             SBManager.shared().doVideoCall(calleeId: self.user.id) { (result, call) in
                                 if result {
-                                    self.videoOn = true
+                                    DispatchQueue.main.async {
+                                        self.videoOn = true
+                                        SBManager.shared().videoModel.model.isCalling = true
+                                        SBManager.shared().videoModel.model.userId = self.user.id
+                                    }
+
                                 }
                             }
                             

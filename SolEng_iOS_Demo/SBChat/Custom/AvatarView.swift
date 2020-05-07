@@ -13,15 +13,17 @@ struct AvatarView: View {
     let size: CGFloat = 50
 
     @ObservedObject var imageLoader:ImageLoader
-    @State var image:UIImage = UIImage()
+    let image:UIImage = UIImage(named: "iconAvatar")!
 
     init(url:String) {
-        print("AvatarView Url = ", url)
+        if url.count == 0  || !url.contains("https://static.sendbird.com") {
+            print("AvatarView Url = ", url)
+        }
         imageLoader = ImageLoader(urlString:url)
     }
 
     var body: some View {
-        Image(uiImage: /*imageLoader.data != nil ? UIImage(data:imageLoader.data!)! :*/ UIImage(named: "iconAvatar")!)
+        Image(uiImage: (imageLoader.data != nil && imageLoader.data!.count > 0) ? UIImage(data:imageLoader.data!)! : image)
             .resizable()
             .frame(width: size, height: size)
             .border(Color.gray.opacity(0.5), width: 0.5)

@@ -65,6 +65,8 @@
 		338F61BA244F396A00A50E05 /* AdminMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338F61B9244F396A00A50E05 /* AdminMessageView.swift */; };
 		338F61BC245699A000A50E05 /* UserNotiRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338F61BB245699A000A50E05 /* UserNotiRegister.swift */; };
 		33D73BA72457D84D0030077A /* SBManager+Call.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D73BA62457D84D0030077A /* SBManager+Call.swift */; };
+		33D73BA9246033C00030077A /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D73BA8246033C00030077A /* VideoView.swift */; };
+		33D73BAB2463E2F70030077A /* Notification+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D73BAA2463E2F70030077A /* Notification+extension.swift */; };
 		58C043B5F96A7D0A5E2D5F71 /* Pods_SolEng_iOS_DemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCE7CE4BEC4AF4280A09F1D3 /* Pods_SolEng_iOS_DemoUITests.framework */; };
 		963003946B48B88B45510B2D /* Pods_SolEng_iOS_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8D0C4E57210FD0A25C483DB /* Pods_SolEng_iOS_Demo.framework */; };
 		B8841BE1A973A78C25E8F75B /* Pods_SolEng_iOS_DemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91923C16FE34C0AE121E4C5C /* Pods_SolEng_iOS_DemoTests.framework */; };
@@ -154,6 +156,8 @@
 		338F61B9244F396A00A50E05 /* AdminMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminMessageView.swift; sourceTree = "<group>"; };
 		338F61BB245699A000A50E05 /* UserNotiRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotiRegister.swift; sourceTree = "<group>"; };
 		33D73BA62457D84D0030077A /* SBManager+Call.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SBManager+Call.swift"; sourceTree = "<group>"; };
+		33D73BA8246033C00030077A /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
+		33D73BAA2463E2F70030077A /* Notification+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+extension.swift"; sourceTree = "<group>"; };
 		5318F34E6BCAC29580F8C609 /* Pods-SolEng_iOS_DemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SolEng_iOS_DemoUITests.debug.xcconfig"; path = "Target Support Files/Pods-SolEng_iOS_DemoUITests/Pods-SolEng_iOS_DemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		91923C16FE34C0AE121E4C5C /* Pods_SolEng_iOS_DemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SolEng_iOS_DemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9438B396EC5C0B296425A550 /* Pods-SolEng_iOS_Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SolEng_iOS_Demo.release.xcconfig"; path = "Target Support Files/Pods-SolEng_iOS_Demo/Pods-SolEng_iOS_Demo.release.xcconfig"; sourceTree = "<group>"; };
@@ -368,6 +372,7 @@
 		33510C8F243EE1C500E6874E /* Call */ = {
 			isa = PBXGroup;
 			children = (
+				33D73BA8246033C00030077A /* VideoView.swift */,
 				33510CA22444664900E6874E /* VoiceCallUIView.swift */,
 				33510CAC2445976700E6874E /* VoiceCallModel.swift */,
 				33510CA8244467F400E6874E /* VoiceCallViewModel.swift */,
@@ -421,6 +426,7 @@
 			children = (
 				338F61B3244ECEEA00A50E05 /* ImageLoader.swift */,
 				338F61BB245699A000A50E05 /* UserNotiRegister.swift */,
+				33D73BAA2463E2F70030077A /* Notification+extension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -711,6 +717,7 @@
 				338F61B1244ECAB100A50E05 /* AvatarView.swift in Sources */,
 				33510C97244403BC00E6874E /* CXProvider.swift in Sources */,
 				338F61AA244D7A1500A50E05 /* SendMessageView.swift in Sources */,
+				33D73BA9246033C00030077A /* VideoView.swift in Sources */,
 				33510C99244403EE00E6874E /* CXCallControllerManager.swift in Sources */,
 				33510C32242AEBFF00E6874E /* SBManager.swift in Sources */,
 				331A3A0E2448B215003EFC23 /* ChatModel.swift in Sources */,
@@ -718,6 +725,7 @@
 				33510C9B2444049C00E6874E /* AppDelegate+PKPushRegistryDelegate.swift in Sources */,
 				33510C8A243ECB5400E6874E /* GroupChannelList.swift in Sources */,
 				33510C51243C24AC00E6874E /* OpenChannelModel.swift in Sources */,
+				33D73BAB2463E2F70030077A /* Notification+extension.swift in Sources */,
 				33510C40243428D100E6874E /* UserListItemRow.swift in Sources */,
 				3303C1802428576100C2EC7D /* AdaptsToKeyboard.swift in Sources */,
 				331A3A102448B226003EFC23 /* ChatViewModel.swift in Sources */,
