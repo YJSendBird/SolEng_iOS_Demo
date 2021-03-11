@@ -31,7 +31,7 @@ struct ChatItemRow: View {
     }
     
     private func checkItem() {
-        print(item.message)
+        //print(item.message)
     }
 }
 

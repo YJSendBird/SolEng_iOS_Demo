@@ -31,7 +31,7 @@ struct UserListItemRow: View {
                 }
                 HStack(spacing: 10) {
                     Spacer()
-                    NavigationLink(destination: ChatUIView(isOpenChat:false, userId: user.id, name: user.name), isActive: $chatOn) {
+                    NavigationLink(destination: ChatUIView(chatType:ChatUIView.ChatType.groupChat, userId: user.id, name: user.name), isActive: $chatOn) {
                         EmptyView()
                     }.frame(width: 0, height: 0)
                     NavigationLink(destination: VoiceCallUIView(), isActive: $voiceOn) {

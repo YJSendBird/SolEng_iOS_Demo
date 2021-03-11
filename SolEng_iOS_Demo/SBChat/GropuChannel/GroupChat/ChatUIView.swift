@@ -11,8 +11,14 @@ import SendBirdSDK
 
 struct ChatUIView: View {
 
+    enum ChatType:String {
+         case groupChat = "groupChat"
+         case openChat = "openChat"
+         case groupChatSync = "groupChatSync"
+    }
+    
     var channelUrl:String
-    var isOpenChat:Bool
+    var chatType:ChatType
     var channelName:String
     var userId:String
     
@@ -21,22 +27,24 @@ struct ChatUIView: View {
 
     @ObservedObject var models = SBManager.shared().chatModel
 
-    init(isOpenChat:Bool, channelUrl:String, channelName:String) {
+    init(chatType:ChatType, channelUrl:String, channelName:String) {
         UITableView.appearance().separatorStyle = .none
         UITableView.appearance().tableFooterView = UIView()
-        self.channelUrl = channelUrl
-        self.isOpenChat = isOpenChat
+        self.channelUrl = channelUrl//channelUrl
+        self.chatType = chatType
         self.channelName = channelName
         self.userId = ""
+        SBManager.shared().chatType = chatType
     }
 
-    init(isOpenChat:Bool, userId:String, name:String) {
+    init(chatType:ChatType, userId:String, name:String) {
         UITableView.appearance().separatorStyle = .none
         UITableView.appearance().tableFooterView = UIView()
         self.channelUrl = ""
-        self.isOpenChat = isOpenChat
+        self.chatType = chatType
         self.channelName = name
         self.userId = userId
+        SBManager.shared().chatType = chatType
     }
     
     var body: some View {
@@ -62,15 +70,50 @@ struct ChatUIView: View {
     
     private func getMessage() {
         //open channel 인경우 가입...
-        if isOpenChat {
-            SBManager.shared().enterOpenChannels(channelUrl: channelUrl) { (result) in
+        switch self.chatType {
+        case ChatType.openChat:
+            SBManager.shared().enterOpenChannels(channelUrl: self.channelUrl) { (result) in
                 if result {
-                    SBManager.shared().createMessageListQuery(isOpenChannel: self.isOpenChat, channelUrl: self.channelUrl) { (result) in
+                    SBManager.shared().createMessageListQuery(isOpenChannel: true, channelUrl: self.channelUrl) { (result) in
                         print(result)
                     }
                 }
             }
-        } else {
+            break
+        case ChatType.groupChat:
+            if self.channelUrl.count > 0 {
+                SBManager.shared().createMessageListQuery(isOpenChannel: false, channelUrl: channelUrl) { (result) in
+                    print(result)
+                }
+            } else {
+                //채널 생성..
+                SBManager.shared().createGroupChannel(userId: self.userId) { (result, groupChannelUrl) in
+                    if result {
+                        self.createdChannelUrl = groupChannelUrl!
+                        SBManager.shared().createMessageListQuery(isOpenChannel: false, channelUrl: groupChannelUrl!) { (result) in
+                            print(result)
+                        }
+                    }
+                }
+            }
+            break
+        case ChatType.groupChatSync:
+//            SBManager.shared().initSyncMessageCollection(channelUrl:channelUrl) { (result) in
+//                print(result)
+//            }
+            break
+        }
+
+        /*
+        if self.chatType == ChatType.openChat {
+            SBManager.shared().enterOpenChannels(channelUrl: channelUrl) { (result) in
+                if result {
+                    SBManager.shared().createMessageListQuery(isOpenChannel: true, channelUrl: self.channelUrl) { (result) in
+                        print(result)
+                    }
+                }
+            }
+        } self.chatType == ChatType.groupChat {
             if channelUrl.count > 0 {
                 SBManager.shared().createMessageListQuery(isOpenChannel: isOpenChat, channelUrl: channelUrl) { (result) in
                     print(result)
@@ -80,7 +123,7 @@ struct ChatUIView: View {
                 SBManager.shared().createGroupChannel(userId: userId) { (result, groupChannelUrl) in
                     if result {
                         self.createdChannelUrl = groupChannelUrl!
-                        SBManager.shared().createMessageListQuery(isOpenChannel: self.isOpenChat, channelUrl: groupChannelUrl!) { (result) in
+                        SBManager.shared().createMessageListQuery(isOpenChannel: false, channelUrl: groupChannelUrl!) { (result) in
                             print(result)
                         }
                     }
@@ -88,9 +131,11 @@ struct ChatUIView: View {
             }
 
         }
+        */
     }
     
     private func delMessage() {
+        SBManager.shared().deinitMessageCollection()
         SBManager.shared().chatModel.lists.removeAll()
     }
 
@@ -102,15 +147,38 @@ struct ChatUIView: View {
             url = self.createdChannelUrl
         }
 
-        SBManager.shared().sendMessage(isOpenChannel:isOpenChat, channelUrl: url, message:typingMessage ) { (result) in
+        var isOpenChat = false
+
+        switch self.chatType {
+            case ChatType.openChat: isOpenChat = true
+        case .groupChat:
+            isOpenChat = false
+        case .groupChatSync:
+            isOpenChat = false
+        }
+
+        /*
+        for n in 1...20 {
+            
+            let aStr = String(format: "%@%x", typingMessage, n)
+            
+            SBManager.shared().sendMessage(isOpenChannel:isOpenChat, channelUrl: url, message:aStr ) { (result) in
+                //self.typingMessage = ""
+                print(result)
+            }
+        }
+        */
+
+        SBManager.shared().sendMessage(isOpenChannel:isOpenChat, channelUrl: url, message:typingMessage) { (result) in
             self.typingMessage = ""
             print(result)
         }
+
     }
 }
 
 struct ChatUIView_Previews: PreviewProvider {
     static var previews: some View {
-        ChatUIView(isOpenChat:false, channelUrl:"", channelName: "test chat")
+        ChatUIView(chatType:ChatUIView.ChatType.openChat, channelUrl:"", channelName: "test chat")
     }
 }

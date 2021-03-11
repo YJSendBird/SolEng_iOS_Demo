@@ -6,10 +6,19 @@ target 'SolEng_iOS_Demo' do
   use_frameworks!
 
   # Pods for SolEng_iOS_Demo
-  pod 'SendBirdSyncManager'
-  pod 'SendBirdCalls'
+  pod 'SendBirdSyncManager' #include SendBirdSDK
+  pod 'SendBirdCalls' #include SendBirdSDK
   pod 'AlamofireImage'
   pod "ImageStore"
+
+  # Pods for SendBird Desk
+  pod 'AFNetworking'
+  pod 'FLAnimatedImage'
+  pod 'NYTPhotoViewer'
+  pod 'TOCropViewController'
+  pod 'HTMLKit'
+  pod 'SendBirdDesk'
+  pod "SendBirdUIKit"
 
   target 'SolEng_iOS_DemoTests' do
     inherit! :search_paths

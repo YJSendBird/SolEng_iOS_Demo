@@ -15,7 +15,7 @@ struct GroupChannelList: View {
 
     var body: some View {
         List(models.lists) { item in
-            NavigationLink(destination: ChatUIView(isOpenChat:false, channelUrl: item.channelUrl, channelName: item.name)) {
+            NavigationLink(destination: ChatUIView(chatType:ChatUIView.ChatType.groupChat, channelUrl: item.channelUrl, channelName: item.name)) {
                 GroupChannelListItemRow(item : item)
             }
         }

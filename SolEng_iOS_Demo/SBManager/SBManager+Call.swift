@@ -17,7 +17,9 @@ extension SBManager : DirectCallDelegate {
     
     func signIn(userId: String, completion: @escaping(Bool)->()) {
         // MARK: SendBirdCall.authenticate()
-        let params = AuthenticateParams(userId: userId, accessToken: nil, voipPushToken: UserDefaults.standard.voipPushToken, unique: false)
+        //let params = AuthenticateParams(userId: userId, accessToken: nil, voipPushToken: UserDefaults.standard.voipPushToken, unique: false)
+        //토큰 등록 부분이 변경 된듯..
+        let params = AuthenticateParams(userId: userId, accessToken: nil)
 
         SendBirdCall.authenticate(with: params) { user, error in
             guard let user = user, error == nil else {
@@ -130,10 +132,6 @@ extension SBManager : DirectCallDelegate {
         print("didEstablish")
     }
     
-    func didRemoteAudioSettingsChange(_ call: DirectCall) {
-       // self.updateRemoteAudio(isEnabled: call.isRemoteAudioEnabled)
-        print("didRemoteAudioSettingsChange")
-    }
     
     func didAudioDeviceChange(_ call: DirectCall, session: AVAudioSession, previousRoute: AVAudioSessionRouteDescription, reason: AVAudioSession.RouteChangeReason) {
         print("didAudioDeviceChange")
@@ -173,7 +171,6 @@ extension SBManager : DirectCallDelegate {
     public func updateRemoteAudio(_ call: DirectCall, isEnabled: Bool) {
 
     }
-    
     
 }
 

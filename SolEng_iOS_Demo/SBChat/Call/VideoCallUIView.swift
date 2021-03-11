@@ -7,6 +7,7 @@
 //
 import SwiftUI
 import SendBirdCalls
+import Combine
 
 struct VideoCallUIView: View {
     
@@ -14,7 +15,7 @@ struct VideoCallUIView: View {
     
     let size: CGFloat = 50
     
-    @State var maxHeight:CGFloat = 200
+    var maxHeight:CGFloat = 200
     
     @ObservedObject var viewModel = SBManager.shared().videoModel
 
@@ -25,13 +26,13 @@ struct VideoCallUIView: View {
             
                     ZStack {
                         VStack(alignment: .leading) {
-                            VideoView(isLocal: true, call: SBManager.shared().directCall!)
+                            VideoView(isLocal: true, call: SBManager.shared().directCall)
                                .cornerRadius(15)
                                 .frame(width: 100, height: 150, alignment: .topLeading)
                                .shadow(color: Color.white.opacity(1.0), radius: 30, x: 0, y: 2)
                                .padding(.horizontal, 10)
                                .padding(.top, 20)
-                            VideoView(isLocal: false, call: SBManager.shared().directCall!)
+                            VideoView(isLocal: false, call: SBManager.shared().directCall)
                                 .cornerRadius(15)
                                 .frame(width: nil, height: 400, alignment: .center)
                                 .shadow(color: Color.black.opacity(0.7), radius: 30, x: 0, y: 2)

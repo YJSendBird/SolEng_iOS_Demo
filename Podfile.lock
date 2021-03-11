@@ -1,102 +1,161 @@
 PODS:
-  - Alamofire (5.1.0)
+  - AFNetworking (4.0.1):
+    - AFNetworking/NSURLSession (= 4.0.1)
+    - AFNetworking/Reachability (= 4.0.1)
+    - AFNetworking/Security (= 4.0.1)
+    - AFNetworking/Serialization (= 4.0.1)
+    - AFNetworking/UIKit (= 4.0.1)
+  - AFNetworking/NSURLSession (4.0.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (4.0.1)
+  - AFNetworking/Security (4.0.1)
+  - AFNetworking/Serialization (4.0.1)
+  - AFNetworking/UIKit (4.0.1):
+    - AFNetworking/NSURLSession
+  - Alamofire (5.4.1)
   - AlamofireImage (4.1.0):
     - Alamofire (~> 5.1)
-  - Firebase/CoreOnly (6.23.0):
-    - FirebaseCore (= 6.6.7)
-  - Firebase/Storage (6.23.0):
+  - Firebase/CoreOnly (6.34.0):
+    - FirebaseCore (= 6.10.4)
+  - Firebase/Storage (6.34.0):
     - Firebase/CoreOnly
-    - FirebaseStorage (~> 3.6.1)
-  - FirebaseAuthInterop (1.1.0)
-  - FirebaseCore (6.6.7):
-    - FirebaseCoreDiagnostics (~> 1.2)
-    - FirebaseCoreDiagnosticsInterop (~> 1.2)
-    - GoogleUtilities/Environment (~> 6.5)
-    - GoogleUtilities/Logger (~> 6.5)
-  - FirebaseCoreDiagnostics (1.2.4):
-    - FirebaseCoreDiagnosticsInterop (~> 1.2)
-    - GoogleDataTransportCCTSupport (~> 3.0)
-    - GoogleUtilities/Environment (~> 6.5)
-    - GoogleUtilities/Logger (~> 6.5)
-    - nanopb (~> 0.3.901)
-  - FirebaseCoreDiagnosticsInterop (1.2.0)
-  - FirebaseStorage (3.6.1):
-    - FirebaseAuthInterop (~> 1.1)
-    - FirebaseCore (~> 6.6)
+    - FirebaseStorage (~> 3.9.1)
+  - FirebaseCore (6.10.4):
+    - FirebaseCoreDiagnostics (~> 1.6)
+    - GoogleUtilities/Environment (~> 6.7)
+    - GoogleUtilities/Logger (~> 6.7)
+  - FirebaseCoreDiagnostics (1.7.0):
+    - GoogleDataTransport (~> 7.4)
+    - GoogleUtilities/Environment (~> 6.7)
+    - GoogleUtilities/Logger (~> 6.7)
+    - nanopb (~> 1.30906.0)
+  - FirebaseStorage (3.9.1):
+    - FirebaseCore (~> 6.10)
     - GTMSessionFetcher/Core (~> 1.1)
-  - GoogleDataTransport (6.0.0)
-  - GoogleDataTransportCCTSupport (3.0.0):
-    - GoogleDataTransport (~> 6.0)
-    - nanopb (~> 0.3.901)
-  - GoogleUtilities/Environment (6.6.0):
+  - FLAnimatedImage (1.0.15)
+  - GoogleDataTransport (7.5.1):
+    - nanopb (~> 1.30906.0)
+  - GoogleUtilities/Environment (6.7.2):
     - PromisesObjC (~> 1.2)
-  - GoogleUtilities/Logger (6.6.0):
+  - GoogleUtilities/Logger (6.7.2):
     - GoogleUtilities/Environment
-  - GTMSessionFetcher/Core (1.3.1)
+  - GTMSessionFetcher/Core (1.5.0)
+  - HTMLKit (3.1.0)
   - ImageStore (0.6.0):
     - Firebase/Storage (~> 6.0)
-  - nanopb (0.3.9011):
-    - nanopb/decode (= 0.3.9011)
-    - nanopb/encode (= 0.3.9011)
-  - nanopb/decode (0.3.9011)
-  - nanopb/encode (0.3.9011)
-  - PromisesObjC (1.2.8)
-  - SendBirdCalls (1.0.4):
+  - nanopb (1.30906.0):
+    - nanopb/decode (= 1.30906.0)
+    - nanopb/encode (= 1.30906.0)
+  - nanopb/decode (1.30906.0)
+  - nanopb/encode (1.30906.0)
+  - NYTPhotoViewer (5.0.5):
+    - NYTPhotoViewer/AnimatedGifSupport (= 5.0.5)
+    - NYTPhotoViewer/Core (= 5.0.5)
+  - NYTPhotoViewer/AnimatedGifSupport (5.0.5):
+    - NYTPhotoViewer/Core
+    - PINRemoteImage/iOS (~> 3.0.1)
+    - PINRemoteImage/PINCache
+  - NYTPhotoViewer/Core (5.0.5)
+  - PINCache (3.0.3):
+    - PINCache/Arc-exception-safe (= 3.0.3)
+    - PINCache/Core (= 3.0.3)
+  - PINCache/Arc-exception-safe (3.0.3):
+    - PINCache/Core
+  - PINCache/Core (3.0.3):
+    - PINOperation (~> 1.2.1)
+  - PINOperation (1.2.1)
+  - PINRemoteImage/Core (3.0.3):
+    - PINOperation
+  - PINRemoteImage/iOS (3.0.3):
+    - PINRemoteImage/Core
+  - PINRemoteImage/PINCache (3.0.3):
+    - PINCache (~> 3.0.3)
+    - PINRemoteImage/Core
+  - PromisesObjC (1.2.12)
+  - SendBirdCalls (1.5.2):
     - SendBirdWebRTC
-  - SendBirdSDK (3.0.179)
-  - SendBirdSyncManager (1.1.21):
-    - SendBirdSDK (~> 3.0.156)
-  - SendBirdWebRTC (1.1.1)
+  - SendBirdDesk (1.0.12):
+    - SendBirdSDK
+  - SendBirdSDK (3.0.215)
+  - SendBirdSyncManager (1.1.36):
+    - SendBirdSDK (~> 3.0.203)
+  - SendBirdUIKit (2.0.7):
+    - SendBirdSDK (~> 3.0.205)
+  - SendBirdWebRTC (1.2.0)
+  - TOCropViewController (2.6.0)
 
 DEPENDENCIES:
+  - AFNetworking
   - AlamofireImage
+  - FLAnimatedImage
+  - HTMLKit
   - ImageStore
+  - NYTPhotoViewer
   - SendBirdCalls
+  - SendBirdDesk
   - SendBirdSyncManager
+  - SendBirdUIKit
+  - TOCropViewController
 
 SPEC REPOS:
   trunk:
+    - AFNetworking
     - Alamofire
     - AlamofireImage
     - Firebase
-    - FirebaseAuthInterop
     - FirebaseCore
     - FirebaseCoreDiagnostics
-    - FirebaseCoreDiagnosticsInterop
     - FirebaseStorage
+    - FLAnimatedImage
     - GoogleDataTransport
-    - GoogleDataTransportCCTSupport
     - GoogleUtilities
     - GTMSessionFetcher
+    - HTMLKit
     - ImageStore
     - nanopb
+    - NYTPhotoViewer
+    - PINCache
+    - PINOperation
+    - PINRemoteImage
     - PromisesObjC
     - SendBirdCalls
+    - SendBirdDesk
     - SendBirdSDK
     - SendBirdSyncManager
+    - SendBirdUIKit
     - SendBirdWebRTC
+    - TOCropViewController
 
 SPEC CHECKSUMS:
-  Alamofire: 9d5c5f602928e512395b30950c5984eca840093c
+  AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
+  Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
   AlamofireImage: c4a2ba349885fb3064feb74d2e547bd42ce9be10
-  Firebase: 585ae467b3edda6a5444e788fda6888f024d8d6f
-  FirebaseAuthInterop: a0f37ae05833af156e72028f648d313f7e7592e9
-  FirebaseCore: a2788a0d5f6c1dff17b8f79b4a73654a8d4bfdbd
-  FirebaseCoreDiagnostics: b59c024493a409f8aecba02c99928d0d8431d159
-  FirebaseCoreDiagnosticsInterop: 296e2c5f5314500a850ad0b83e9e7c10b011a850
-  FirebaseStorage: f4f39ae834a7145963b913f54e2f24a9db1d8fac
-  GoogleDataTransport: 061fe7d9b476710e3cd8ea51e8e07d8b67c2b420
-  GoogleDataTransportCCTSupport: 0f39025e8cf51f168711bd3fb773938d7e62ddb5
-  GoogleUtilities: 39530bc0ad980530298e9c4af8549e991fd033b1
-  GTMSessionFetcher: cea130bbfe5a7edc8d06d3f0d17288c32ffe9925
+  Firebase: c23a36d9e4cdf7877dfcba8dd0c58add66358999
+  FirebaseCore: d3a978a3cfa3240bf7e4ba7d137fdf5b22b628ec
+  FirebaseCoreDiagnostics: 770ac5958e1372ce67959ae4b4f31d8e127c3ac1
+  FirebaseStorage: 15e0f15ef3c7fec3d1899d68623e47d4447066b4
+  FLAnimatedImage: dd3db277b17e909ec3c7fd41adfce79b321d960e
+  GoogleDataTransport: f56af7caa4ed338dc8e138a5d7c5973e66440833
+  GoogleUtilities: 7f2f5a07f888cdb145101d6042bc4422f57e70b3
+  GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
+  HTMLKit: 4ed10a911462cbf972329ec6aaaa827208dfd70c
   ImageStore: b5f6ac827f5c097172596de9bc0b4e03ce59bfa9
-  nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
-  PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
-  SendBirdCalls: e64131ffe3f8e3f3b9f65ff3ead707c6ef45a9eb
-  SendBirdSDK: c16c053159760122a553e40ffe7c6d7c4cda368b
-  SendBirdSyncManager: ff127bcf32cc6acff92331936dd9668da383f4a2
-  SendBirdWebRTC: bc541d01a10819a6d1b3e52790a54121cb7dd687
+  nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
+  NYTPhotoViewer: 6f50ea92f265d54a350b39a7ab7a1b91ca487ff6
+  PINCache: 7a8fc1a691173d21dbddbf86cd515de6efa55086
+  PINOperation: 00c935935f1e8cf0d1e2d6b542e75b88fc3e5e20
+  PINRemoteImage: f1295b29f8c5e640e25335a1b2bd9d805171bd01
+  PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
+  SendBirdCalls: 704e9cbf58cced78a8ec29d02e02e1a400b54e31
+  SendBirdDesk: a3441836133fadbaf7f80a8f3b45b400baa59c6b
+  SendBirdSDK: 8b36b020514c8bff226576fc2f4f0d47e7193ebb
+  SendBirdSyncManager: 1d0252adec807b76501d2c0385cc417e64433878
+  SendBirdUIKit: dad67f6dfb2aacbf28e68b78b34d77aec2a954f7
+  SendBirdWebRTC: 7ba91b10a214ae2f1d99de28b9a70bd68d897511
+  TOCropViewController: 3105367e808b7d3d886a74ff59bf4804e7d3ab38
 
-PODFILE CHECKSUM: 36eeb142ba1d282cb930bd16d313393531970eed
+PODFILE CHECKSUM: c13f68da7d02d23cda69b7809bd799a989c70c63
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.9.3

@@ -23,6 +23,17 @@
 		331A3A0C2448B1E7003EFC23 /* ChatItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331A3A0B2448B1E7003EFC23 /* ChatItemRow.swift */; };
 		331A3A0E2448B215003EFC23 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331A3A0D2448B215003EFC23 /* ChatModel.swift */; };
 		331A3A102448B226003EFC23 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331A3A0F2448B226003EFC23 /* ChatViewModel.swift */; };
+		3333A38925CE6F670060F756 /* Pods_SolEng_iOS_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8D0C4E57210FD0A25C483DB /* Pods_SolEng_iOS_Demo.framework */; };
+		3333A38A25CE6F670060F756 /* Pods_SolEng_iOS_Demo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D8D0C4E57210FD0A25C483DB /* Pods_SolEng_iOS_Demo.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		3333A53E25E3537C0060F756 /* SBManager+GroupCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3333A53D25E3537C0060F756 /* SBManager+GroupCall.swift */; };
+		3333A54425E3A8300060F756 /* SyncChatUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3333A54325E3A8300060F756 /* SyncChatUIView.swift */; };
+		3333A54E25E3A9950060F756 /* SyncChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3333A54D25E3A9950060F756 /* SyncChatViewModel.swift */; };
+		334AB4C6248A350900F355D8 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 334AB4C5248A350900F355D8 /* UserNotifications.framework */; };
+		334AB4C8248A350900F355D8 /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 334AB4C7248A350900F355D8 /* UserNotificationsUI.framework */; };
+		334AB4CB248A350900F355D8 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334AB4CA248A350900F355D8 /* NotificationViewController.swift */; };
+		334AB4CE248A350900F355D8 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 334AB4CC248A350900F355D8 /* MainInterface.storyboard */; };
+		334AB4D2248A350A00F355D8 /* SolEng_iOS_PushContent.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 334AB4C4248A350900F355D8 /* SolEng_iOS_PushContent.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		334BF7662477C1F100188485 /* SBManager+Desk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334BF7652477C1F100188485 /* SBManager+Desk.swift */; };
 		33510C2B2429C21600E6874E /* MainViewListItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33510C2A2429C21600E6874E /* MainViewListItemRow.swift */; };
 		33510C32242AEBFF00E6874E /* SBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33510C31242AEBFF00E6874E /* SBManager.swift */; };
 		33510C34242DB12900E6874E /* GroupChannelSyncListItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33510C33242DB12900E6874E /* GroupChannelSyncListItemRow.swift */; };
@@ -56,6 +67,11 @@
 		33510CAB2444680300E6874E /* VideoCallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33510CAA2444680300E6874E /* VideoCallViewModel.swift */; };
 		33510CAD2445976700E6874E /* VoiceCallModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33510CAC2445976700E6874E /* VoiceCallModel.swift */; };
 		33510CAF24459B5300E6874E /* VideoCallModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33510CAE24459B5300E6874E /* VideoCallModel.swift */; };
+		3351E29724F47F26008D703F /* DeskChannelList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3351E29624F47F26008D703F /* DeskChannelList.swift */; };
+		337E863B25F9FD3200F2A79F /* RoomList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337E863A25F9FD3200F2A79F /* RoomList.swift */; };
+		337E864025F9FD4500F2A79F /* RoomListItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337E863F25F9FD4500F2A79F /* RoomListItemRow.swift */; };
+		337E864525F9FD6300F2A79F /* RoomListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337E864425F9FD6300F2A79F /* RoomListModel.swift */; };
+		337E864A25F9FD7000F2A79F /* RoomListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337E864925F9FD7000F2A79F /* RoomListViewModel.swift */; };
 		338F61AA244D7A1500A50E05 /* SendMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338F61A9244D7A1500A50E05 /* SendMessageView.swift */; };
 		338F61AD244DD25100A50E05 /* CustomScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338F61AC244DD25100A50E05 /* CustomScrollView.swift */; };
 		338F61AF244DD53F00A50E05 /* SBManager+Modeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338F61AE244DD53F00A50E05 /* SBManager+Modeling.swift */; };
@@ -67,8 +83,11 @@
 		33D73BA72457D84D0030077A /* SBManager+Call.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D73BA62457D84D0030077A /* SBManager+Call.swift */; };
 		33D73BA9246033C00030077A /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D73BA8246033C00030077A /* VideoView.swift */; };
 		33D73BAB2463E2F70030077A /* Notification+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D73BAA2463E2F70030077A /* Notification+extension.swift */; };
+		33D73BCB246BB7800030077A /* SBManager+Sync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D73BCA246BB7800030077A /* SBManager+Sync.swift */; };
+		33D73BCE246CBCE20030077A /* WebViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D73BCD246CBCE20030077A /* WebViewModel.swift */; };
+		33D73BD0246CBCFA0030077A /* SwiftUIWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D73BCF246CBCFA0030077A /* SwiftUIWebView.swift */; };
+		33D73BD2246CBE410030077A /* WebChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D73BD1246CBE410030077A /* WebChat.swift */; };
 		58C043B5F96A7D0A5E2D5F71 /* Pods_SolEng_iOS_DemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCE7CE4BEC4AF4280A09F1D3 /* Pods_SolEng_iOS_DemoUITests.framework */; };
-		963003946B48B88B45510B2D /* Pods_SolEng_iOS_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8D0C4E57210FD0A25C483DB /* Pods_SolEng_iOS_Demo.framework */; };
 		B8841BE1A973A78C25E8F75B /* Pods_SolEng_iOS_DemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91923C16FE34C0AE121E4C5C /* Pods_SolEng_iOS_DemoTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -87,7 +106,39 @@
 			remoteGlobalIDString = 15AEBA3D241FC8BF00241E4B;
 			remoteInfo = SolEng_iOS_Demo;
 		};
+		334AB4D0248A350900F355D8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 15AEBA36241FC8BF00241E4B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 334AB4C3248A350900F355D8;
+			remoteInfo = SolEng_iOS_PushContent;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3333A38B25CE6F670060F756 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3333A38A25CE6F670060F756 /* Pods_SolEng_iOS_Demo.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		334AB4D3248A350A00F355D8 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				334AB4D2248A350A00F355D8 /* SolEng_iOS_PushContent.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		15AEBA3E241FC8BF00241E4B /* SolEng_iOS_Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SolEng_iOS_Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -113,6 +164,20 @@
 		331A3A0B2448B1E7003EFC23 /* ChatItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatItemRow.swift; sourceTree = "<group>"; };
 		331A3A0D2448B215003EFC23 /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
 		331A3A0F2448B226003EFC23 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
+		3333A31625CE69E60060F756 /* SendBirdSyncManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SendBirdSyncManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3333A34025CE6AC30060F756 /* SendBirdSyncManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SendBirdSyncManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3333A34425CE6AD60060F756 /* SendBirdSyncManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SendBirdSyncManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3333A34D25CE6BF10060F756 /* SendBirdSyncManager.xcworkspace */ = {isa = PBXFileReference; lastKnownFileType = wrapper.workspace; name = SendBirdSyncManager.xcworkspace; path = "syncmanager-ios-1.1.36/SendBirdSyncManager.xcworkspace"; sourceTree = "<group>"; };
+		3333A53D25E3537C0060F756 /* SBManager+GroupCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SBManager+GroupCall.swift"; sourceTree = "<group>"; };
+		3333A54325E3A8300060F756 /* SyncChatUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncChatUIView.swift; sourceTree = "<group>"; };
+		3333A54D25E3A9950060F756 /* SyncChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncChatViewModel.swift; sourceTree = "<group>"; };
+		334AB4C4248A350900F355D8 /* SolEng_iOS_PushContent.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SolEng_iOS_PushContent.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		334AB4C5248A350900F355D8 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		334AB4C7248A350900F355D8 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
+		334AB4CA248A350900F355D8 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		334AB4CD248A350900F355D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		334AB4CF248A350900F355D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		334BF7652477C1F100188485 /* SBManager+Desk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SBManager+Desk.swift"; sourceTree = "<group>"; };
 		33510C2A2429C21600E6874E /* MainViewListItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewListItemRow.swift; sourceTree = "<group>"; };
 		33510C31242AEBFF00E6874E /* SBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBManager.swift; sourceTree = "<group>"; };
 		33510C33242DB12900E6874E /* GroupChannelSyncListItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupChannelSyncListItemRow.swift; sourceTree = "<group>"; };
@@ -147,6 +212,11 @@
 		33510CAA2444680300E6874E /* VideoCallViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCallViewModel.swift; sourceTree = "<group>"; };
 		33510CAC2445976700E6874E /* VoiceCallModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceCallModel.swift; sourceTree = "<group>"; };
 		33510CAE24459B5300E6874E /* VideoCallModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCallModel.swift; sourceTree = "<group>"; };
+		3351E29624F47F26008D703F /* DeskChannelList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeskChannelList.swift; sourceTree = "<group>"; };
+		337E863A25F9FD3200F2A79F /* RoomList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomList.swift; sourceTree = "<group>"; };
+		337E863F25F9FD4500F2A79F /* RoomListItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomListItemRow.swift; sourceTree = "<group>"; };
+		337E864425F9FD6300F2A79F /* RoomListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomListModel.swift; sourceTree = "<group>"; };
+		337E864925F9FD7000F2A79F /* RoomListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomListViewModel.swift; sourceTree = "<group>"; };
 		338F61A9244D7A1500A50E05 /* SendMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendMessageView.swift; sourceTree = "<group>"; };
 		338F61AC244DD25100A50E05 /* CustomScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomScrollView.swift; sourceTree = "<group>"; };
 		338F61AE244DD53F00A50E05 /* SBManager+Modeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SBManager+Modeling.swift"; sourceTree = "<group>"; };
@@ -158,6 +228,10 @@
 		33D73BA62457D84D0030077A /* SBManager+Call.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SBManager+Call.swift"; sourceTree = "<group>"; };
 		33D73BA8246033C00030077A /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
 		33D73BAA2463E2F70030077A /* Notification+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+extension.swift"; sourceTree = "<group>"; };
+		33D73BCA246BB7800030077A /* SBManager+Sync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SBManager+Sync.swift"; sourceTree = "<group>"; };
+		33D73BCD246CBCE20030077A /* WebViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewModel.swift; sourceTree = "<group>"; };
+		33D73BCF246CBCFA0030077A /* SwiftUIWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIWebView.swift; sourceTree = "<group>"; };
+		33D73BD1246CBE410030077A /* WebChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebChat.swift; sourceTree = "<group>"; };
 		5318F34E6BCAC29580F8C609 /* Pods-SolEng_iOS_DemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SolEng_iOS_DemoUITests.debug.xcconfig"; path = "Target Support Files/Pods-SolEng_iOS_DemoUITests/Pods-SolEng_iOS_DemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		91923C16FE34C0AE121E4C5C /* Pods_SolEng_iOS_DemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SolEng_iOS_DemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9438B396EC5C0B296425A550 /* Pods-SolEng_iOS_Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SolEng_iOS_Demo.release.xcconfig"; path = "Target Support Files/Pods-SolEng_iOS_Demo/Pods-SolEng_iOS_Demo.release.xcconfig"; sourceTree = "<group>"; };
@@ -173,7 +247,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				963003946B48B88B45510B2D /* Pods_SolEng_iOS_Demo.framework in Frameworks */,
+				3333A38925CE6F670060F756 /* Pods_SolEng_iOS_Demo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,6 +267,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		334AB4C1248A350900F355D8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				334AB4C8248A350900F355D8 /* UserNotificationsUI.framework in Frameworks */,
+				334AB4C6248A350900F355D8 /* UserNotifications.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -202,6 +285,7 @@
 				15AEBA40241FC8BF00241E4B /* SolEng_iOS_Demo */,
 				15AEBA57241FC8C300241E4B /* SolEng_iOS_DemoTests */,
 				15AEBA62241FC8C300241E4B /* SolEng_iOS_DemoUITests */,
+				334AB4C9248A350900F355D8 /* SolEng_iOS_PushContent */,
 				15AEBA3F241FC8BF00241E4B /* Products */,
 				DC533104B9631978A581F383 /* Pods */,
 				559DD11D9FAB04D2B426B487 /* Frameworks */,
@@ -214,6 +298,7 @@
 				15AEBA3E241FC8BF00241E4B /* SolEng_iOS_Demo.app */,
 				15AEBA54241FC8C300241E4B /* SolEng_iOS_DemoTests.xctest */,
 				15AEBA5F241FC8C300241E4B /* SolEng_iOS_DemoUITests.xctest */,
+				334AB4C4248A350900F355D8 /* SolEng_iOS_PushContent.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -270,10 +355,13 @@
 		3303C181242857C100C2EC7D /* SBChat */ = {
 			isa = PBXGroup;
 			children = (
+				337E863925F9FD0A00F2A79F /* Room */,
+				33D73BCC246CBCB30030077A /* WebView */,
 				338F61AB244DD22E00A50E05 /* Custom */,
 				338F61A8244D799500A50E05 /* ChatContents */,
 				33510C8F243EE1C500E6874E /* Call */,
 				33510C3A2434107700E6874E /* Users */,
+				3351E29524F47EE0008D703F /* DeskChannel */,
 				33510C2F242AEBC900E6874E /* GroupChannelSync */,
 				33510C84243EC98900E6874E /* GropuChannel */,
 				33510C452436F9F300E6874E /* OpenChannel */,
@@ -293,6 +381,25 @@
 			path = UIViewModifier;
 			sourceTree = "<group>";
 		};
+		3333A54225E3A7E00060F756 /* SyncChat */ = {
+			isa = PBXGroup;
+			children = (
+				3333A54325E3A8300060F756 /* SyncChatUIView.swift */,
+				3333A54D25E3A9950060F756 /* SyncChatViewModel.swift */,
+			);
+			path = SyncChat;
+			sourceTree = "<group>";
+		};
+		334AB4C9248A350900F355D8 /* SolEng_iOS_PushContent */ = {
+			isa = PBXGroup;
+			children = (
+				334AB4CA248A350900F355D8 /* NotificationViewController.swift */,
+				334AB4CC248A350900F355D8 /* MainInterface.storyboard */,
+				334AB4CF248A350900F355D8 /* Info.plist */,
+			);
+			path = SolEng_iOS_PushContent;
+			sourceTree = "<group>";
+		};
 		33510C2E242AEB2200E6874E /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -306,6 +413,7 @@
 		33510C2F242AEBC900E6874E /* GroupChannelSync */ = {
 			isa = PBXGroup;
 			children = (
+				3333A54225E3A7E00060F756 /* SyncChat */,
 				33510C48243C1F7700E6874E /* GroupChannelSyncList.swift */,
 				33510C33242DB12900E6874E /* GroupChannelSyncListItemRow.swift */,
 				33510C38243321A600E6874E /* GroupChannelSyncModel.swift */,
@@ -319,7 +427,10 @@
 			children = (
 				33510C31242AEBFF00E6874E /* SBManager.swift */,
 				33D73BA62457D84D0030077A /* SBManager+Call.swift */,
+				33D73BCA246BB7800030077A /* SBManager+Sync.swift */,
+				334BF7652477C1F100188485 /* SBManager+Desk.swift */,
 				338F61AE244DD53F00A50E05 /* SBManager+Modeling.swift */,
+				3333A53D25E3537C0060F756 /* SBManager+GroupCall.swift */,
 			);
 			path = SBManager;
 			sourceTree = "<group>";
@@ -402,6 +513,25 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		3351E29524F47EE0008D703F /* DeskChannel */ = {
+			isa = PBXGroup;
+			children = (
+				3351E29624F47F26008D703F /* DeskChannelList.swift */,
+			);
+			path = DeskChannel;
+			sourceTree = "<group>";
+		};
+		337E863925F9FD0A00F2A79F /* Room */ = {
+			isa = PBXGroup;
+			children = (
+				337E863A25F9FD3200F2A79F /* RoomList.swift */,
+				337E863F25F9FD4500F2A79F /* RoomListItemRow.swift */,
+				337E864425F9FD6300F2A79F /* RoomListModel.swift */,
+				337E864925F9FD7000F2A79F /* RoomListViewModel.swift */,
+			);
+			path = Room;
+			sourceTree = "<group>";
+		};
 		338F61A8244D799500A50E05 /* ChatContents */ = {
 			isa = PBXGroup;
 			children = (
@@ -431,12 +561,28 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		33D73BCC246CBCB30030077A /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				33D73BCD246CBCE20030077A /* WebViewModel.swift */,
+				33D73BCF246CBCFA0030077A /* SwiftUIWebView.swift */,
+				33D73BD1246CBE410030077A /* WebChat.swift */,
+			);
+			path = WebView;
+			sourceTree = "<group>";
+		};
 		559DD11D9FAB04D2B426B487 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3333A34D25CE6BF10060F756 /* SendBirdSyncManager.xcworkspace */,
+				3333A34425CE6AD60060F756 /* SendBirdSyncManager.framework */,
+				3333A34025CE6AC30060F756 /* SendBirdSyncManager.framework */,
+				3333A31625CE69E60060F756 /* SendBirdSyncManager.framework */,
 				D8D0C4E57210FD0A25C483DB /* Pods_SolEng_iOS_Demo.framework */,
 				91923C16FE34C0AE121E4C5C /* Pods_SolEng_iOS_DemoTests.framework */,
 				BCE7CE4BEC4AF4280A09F1D3 /* Pods_SolEng_iOS_DemoUITests.framework */,
+				334AB4C5248A350900F355D8 /* UserNotifications.framework */,
+				334AB4C7248A350900F355D8 /* UserNotificationsUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -466,10 +612,13 @@
 				15AEBA3B241FC8BF00241E4B /* Frameworks */,
 				15AEBA3C241FC8BF00241E4B /* Resources */,
 				8EA57ECE7DDAF3877452103C /* [CP] Embed Pods Frameworks */,
+				334AB4D3248A350A00F355D8 /* Embed App Extensions */,
+				3333A38B25CE6F670060F756 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				334AB4D1248A350900F355D8 /* PBXTargetDependency */,
 			);
 			name = SolEng_iOS_Demo;
 			productName = SolEng_iOS_Demo;
@@ -514,6 +663,23 @@
 			productReference = 15AEBA5F241FC8C300241E4B /* SolEng_iOS_DemoUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		334AB4C3248A350900F355D8 /* SolEng_iOS_PushContent */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 334AB4D6248A350A00F355D8 /* Build configuration list for PBXNativeTarget "SolEng_iOS_PushContent" */;
+			buildPhases = (
+				334AB4C0248A350900F355D8 /* Sources */,
+				334AB4C1248A350900F355D8 /* Frameworks */,
+				334AB4C2248A350900F355D8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SolEng_iOS_PushContent;
+			productName = SolEng_iOS_PushContent;
+			productReference = 334AB4C4248A350900F355D8 /* SolEng_iOS_PushContent.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -535,6 +701,9 @@
 						CreatedOnToolsVersion = 11.3.1;
 						TestTargetID = 15AEBA3D241FC8BF00241E4B;
 					};
+					334AB4C3248A350900F355D8 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
 				};
 			};
 			buildConfigurationList = 15AEBA39241FC8BF00241E4B /* Build configuration list for PBXProject "SolEng_iOS_Demo" */;
@@ -553,6 +722,7 @@
 				15AEBA3D241FC8BF00241E4B /* SolEng_iOS_Demo */,
 				15AEBA53241FC8C300241E4B /* SolEng_iOS_DemoTests */,
 				15AEBA5E241FC8C300241E4B /* SolEng_iOS_DemoUITests */,
+				334AB4C3248A350900F355D8 /* SolEng_iOS_PushContent */,
 			);
 		};
 /* End PBXProject section */
@@ -579,6 +749,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		334AB4C2248A350900F355D8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				334AB4CE248A350900F355D8 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -680,10 +858,14 @@
 				33510CAF24459B5300E6874E /* VideoCallModel.swift in Sources */,
 				33510CA02444609000E6874E /* Data+Extension.swift in Sources */,
 				33510C3C243428A900E6874E /* UserUIView.swift in Sources */,
+				3351E29724F47F26008D703F /* DeskChannelList.swift in Sources */,
 				15AEBA44241FC8BF00241E4B /* SceneDelegate.swift in Sources */,
 				338F61AF244DD53F00A50E05 /* SBManager+Modeling.swift in Sources */,
 				331A3A082448AC27003EFC23 /* ViewRouter.swift in Sources */,
 				33510CA72444667100E6874E /* DirectCallDataSource.swift in Sources */,
+				337E863B25F9FD3200F2A79F /* RoomList.swift in Sources */,
+				3333A54425E3A8300060F756 /* SyncChatUIView.swift in Sources */,
+				337E864525F9FD6300F2A79F /* RoomListModel.swift in Sources */,
 				33510C49243C1F7700E6874E /* GroupChannelSyncList.swift in Sources */,
 				33510CA32444664900E6874E /* VoiceCallUIView.swift in Sources */,
 				33510CA9244467F400E6874E /* VoiceCallViewModel.swift in Sources */,
@@ -692,36 +874,45 @@
 				33510C9E24443CB500E6874E /* UserDefaults+SolEng.swift in Sources */,
 				33D73BA72457D84D0030077A /* SBManager+Call.swift in Sources */,
 				33510C2B2429C21600E6874E /* MainViewListItemRow.swift in Sources */,
+				3333A53E25E3537C0060F756 /* SBManager+GroupCall.swift in Sources */,
 				338F61AD244DD25100A50E05 /* CustomScrollView.swift in Sources */,
 				33510C4F243C217E00E6874E /* OpenChannelListItemRow.swift in Sources */,
 				3303C17E24284F7600C2EC7D /* LoginView.swift in Sources */,
 				338F61BC245699A000A50E05 /* UserNotiRegister.swift in Sources */,
 				33510C4B243C1F8B00E6874E /* GroupChannelSyncViewModel.swift in Sources */,
 				33510C942444032D00E6874E /* AppDelegate+SendBirdCallsDelegates.swift in Sources */,
+				33D73BD0246CBCFA0030077A /* SwiftUIWebView.swift in Sources */,
 				33510CA52444665D00E6874E /* VideoCallUIView.swift in Sources */,
 				338F61B4244ECEEA00A50E05 /* ImageLoader.swift in Sources */,
 				33510C372433215600E6874E /* ChatUIView.swift in Sources */,
 				33510CAB2444680300E6874E /* VideoCallViewModel.swift in Sources */,
 				33510C34242DB12900E6874E /* GroupChannelSyncListItemRow.swift in Sources */,
 				33510C88243ECAFC00E6874E /* GroupChannelListItemRow.swift in Sources */,
+				3333A54E25E3A9950060F756 /* SyncChatViewModel.swift in Sources */,
 				33510C53243C24D200E6874E /* OpenChannelViewModel.swift in Sources */,
 				15AEBA46241FC8BF00241E4B /* MainView.swift in Sources */,
 				33510C8E243ECB8500E6874E /* GroupChannelViewModel.swift in Sources */,
+				337E864025F9FD4500F2A79F /* RoomListItemRow.swift in Sources */,
 				3303C1842428884900C2EC7D /* RootView.swift in Sources */,
 				33510C39243321A600E6874E /* GroupChannelSyncModel.swift in Sources */,
 				33510CAD2445976700E6874E /* VoiceCallModel.swift in Sources */,
 				331A3A0C2448B1E7003EFC23 /* ChatItemRow.swift in Sources */,
+				33D73BD2246CBE410030077A /* WebChat.swift in Sources */,
 				33510C442434C96700E6874E /* UserViewModel.swift in Sources */,
 				338F61B8244F390300A50E05 /* ReceiveMessageView.swift in Sources */,
 				33510C92244402E900E6874E /* Appdelegate+CXProviderDelegate.swift in Sources */,
 				338F61B1244ECAB100A50E05 /* AvatarView.swift in Sources */,
 				33510C97244403BC00E6874E /* CXProvider.swift in Sources */,
 				338F61AA244D7A1500A50E05 /* SendMessageView.swift in Sources */,
+				337E864A25F9FD7000F2A79F /* RoomListViewModel.swift in Sources */,
 				33D73BA9246033C00030077A /* VideoView.swift in Sources */,
 				33510C99244403EE00E6874E /* CXCallControllerManager.swift in Sources */,
 				33510C32242AEBFF00E6874E /* SBManager.swift in Sources */,
 				331A3A0E2448B215003EFC23 /* ChatModel.swift in Sources */,
+				33D73BCE246CBCE20030077A /* WebViewModel.swift in Sources */,
+				334BF7662477C1F100188485 /* SBManager+Desk.swift in Sources */,
 				33510C4D243C214300E6874E /* OpenChannelList.swift in Sources */,
+				33D73BCB246BB7800030077A /* SBManager+Sync.swift in Sources */,
 				33510C9B2444049C00E6874E /* AppDelegate+PKPushRegistryDelegate.swift in Sources */,
 				33510C8A243ECB5400E6874E /* GroupChannelList.swift in Sources */,
 				33510C51243C24AC00E6874E /* OpenChannelModel.swift in Sources */,
@@ -749,6 +940,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		334AB4C0248A350900F355D8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				334AB4CB248A350900F355D8 /* NotificationViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -762,6 +961,11 @@
 			target = 15AEBA3D241FC8BF00241E4B /* SolEng_iOS_Demo */;
 			targetProxy = 15AEBA60241FC8C300241E4B /* PBXContainerItemProxy */;
 		};
+		334AB4D1248A350900F355D8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 334AB4C3248A350900F355D8 /* SolEng_iOS_PushContent */;
+			targetProxy = 334AB4D0248A350900F355D8 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -771,6 +975,14 @@
 				15AEBA4D241FC8C300241E4B /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		334AB4CC248A350900F355D8 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				334AB4CD248A350900F355D8 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -894,6 +1106,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CB43092E00B60979E16A7D85 /* Pods-SolEng_iOS_Demo.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SolEng_iOS_Demo/SolEng_iOS_Demo.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -919,6 +1132,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9438B396EC5C0B296425A550 /* Pods-SolEng_iOS_Demo.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SolEng_iOS_Demo/SolEng_iOS_Demo.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -1028,6 +1242,46 @@
 			};
 			name = Release;
 		};
+		334AB4D4248A350A00F355D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = J4C74G3BHK;
+				INFOPLIST_FILE = SolEng_iOS_PushContent/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sendbird.soleng.demo.yongjun.SolEng-iOS-PushContent";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		334AB4D5248A350A00F355D8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = J4C74G3BHK;
+				INFOPLIST_FILE = SolEng_iOS_PushContent/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sendbird.soleng.demo.yongjun.SolEng-iOS-PushContent";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1063,6 +1317,15 @@
 			buildConfigurations = (
 				15AEBA6F241FC8C300241E4B /* Debug */,
 				15AEBA70241FC8C300241E4B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		334AB4D6248A350A00F355D8 /* Build configuration list for PBXNativeTarget "SolEng_iOS_PushContent" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				334AB4D4248A350A00F355D8 /* Debug */,
+				334AB4D5248A350A00F355D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

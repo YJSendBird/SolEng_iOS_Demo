@@ -17,14 +17,14 @@ extension SBManager {
         
         model.id = sbMessage.messageId
 
-        model.channelUrl = sbMessage.channelUrl!
+        model.channelUrl = sbMessage.channelUrl
 
         if sbMessage is SBDUserMessage {
             
             let userMessage =  (sbMessage as? SBDUserMessage)
             
             model.messageType = MessageType.userMessage
-            model.message = userMessage!.message!
+            model.message = userMessage!.message
             
             if(SBDMain.getCurrentUser() == userMessage!.sender!) {
                 model.user.isCurrentUser = true
@@ -49,7 +49,7 @@ extension SBManager {
             
         } else if sbMessage is SBDAdminMessage {
             model.messageType = MessageType.adminMessage
-            model.message = (sbMessage as? SBDAdminMessage)!.message!
+            model.message = (sbMessage as? SBDAdminMessage)!.message
         }
         return model
     }

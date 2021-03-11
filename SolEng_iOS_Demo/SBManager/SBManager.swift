@@ -10,21 +10,24 @@ import Foundation
 import SendBirdSyncManager
 import SendBirdCalls
 import SwiftUI
+import SendBirdDesk
 
-class SBManager: NSObject, SBDConnectionDelegate, SBDUserEventDelegate, SBDChannelDelegate, SBSMChannelCollectionDelegate {
+class SBManager: NSObject, SBDConnectionDelegate, SBDUserEventDelegate, SBDChannelDelegate {
     
     // MARK: - Properties
     static let UNIQUE_DELEGATE_ID = "SBManager"
     
     //static let APP_ID = "9DA1B1F4-0BE6-4DA8-82C5-2E81DAB56F23"        //Sample
-    static let APP_ID = "A5192321-42DA-4ADC-8A75-6311D24BF4FE"      //SendBird-Calls-Playground
-    //static let APP_ID = "521FF53A-352D-4802-A285-F176C21BB825"      //My Sample - With Call
+    //static let APP_ID = "A5192321-42DA-4ADC-8A75-6311D24BF4FE"      //SendBird-Calls-Playground
+    static let APP_ID = "521FF53A-352D-4802-A285-F176C21BB825"      //My Sample - With Call YJAPP03
+    //static let APP_ID = "EA2940C7-5696-4629-80B8-2E7CADF9FD0E"      //My Sample - With Call YJAPP01
     
-
+    
     private var userListQuery:SBDApplicationUserListQuery?
     private var friendListQuery:SBDFriendListQuery?
-    private var groupChannelSyncQuery:SBDGroupChannelListQuery?
-    private var groupCollection: SBSMChannelCollection?
+    public var groupChannelSyncQuery:SBDGroupChannelListQuery?
+    public var groupCollection: SBSMChannelCollection?
+    //public var messageCollection: SBSMMessageCollection?
     private var groupChannelQuery:SBDGroupChannelListQuery?
     private var openChannelQuery:SBDOpenChannelListQuery?
 
@@ -39,11 +42,15 @@ class SBManager: NSObject, SBDConnectionDelegate, SBDUserEventDelegate, SBDChann
     
     public var voiceModel = VoiceCallViewModel()
     public var videoModel = VideoCallViewModel()
+    
+    public var chatType = ChatUIView.ChatType.groupChat;
 
     private static var sharedManager: SBManager = {
         let shared = SBManager()
-        SBDMain.initWithApplicationId(SBManager.APP_ID)
-        SendBirdCall.configure(appId: SBManager.APP_ID)
+        //SBDMain.setLogLevel(.info)
+        SBDMain.setLogLevel(SBDLogLevel.init(rawValue: 1112017) )
+        SBDMain.initWithApplicationId(SBManager.APP_ID)  //CHAT
+        SendBirdCall.configure(appId: SBManager.APP_ID)  //CALL
         return shared
     }()
 
@@ -92,12 +99,13 @@ class SBManager: NSObject, SBDConnectionDelegate, SBDUserEventDelegate, SBDChann
                     }
                 }
             }
-
+            
             UserDefaults.standard.autoLogin = true
             UserDefaults.standard.user = (user!.userId, user!.nickname, nil)
             print("connect success")
 
             // after getting user's ID or login
+            
             SBSMSyncManager.setup(withUserId: user!.userId)
             
             self.initViewModel()
@@ -111,6 +119,10 @@ class SBManager: NSObject, SBDConnectionDelegate, SBDUserEventDelegate, SBDChann
                 }
             }
 
+            //Desk Init
+            // Initialize SendBIrd Desk
+            SBDSKMain.initializeDesk()
+            
         })
     }
 
@@ -151,6 +163,12 @@ class SBManager: NSObject, SBDConnectionDelegate, SBDUserEventDelegate, SBDChann
         
         print("getGroupChannels")
         getGroupChannels()
+        
+//        if messageCollection != nil {
+//            self.loadNextSyncMessage(collection:self.messageCollection!) { (result) in
+//                print(result)
+//            }
+//        }
     }
 
     // MARK: - Users
@@ -207,31 +225,22 @@ class SBManager: NSObject, SBDConnectionDelegate, SBDUserEventDelegate, SBDChann
         })
     }
 
-    // MARK: - group channel with syncmanager
-    private func initGroupChanneSync() {
-        // Mark: - GroupChannel
-        if groupChannelSyncQuery == nil {
-            groupChannelSyncQuery = SBDGroupChannel.createMyGroupChannelListQuery()!
-            groupChannelSyncQuery!.limit = 10
-            groupChannelSyncQuery!.order = SBDGroupChannelListOrder.latestLastMessage
-            groupCollection = SBSMChannelCollection(query: groupChannelSyncQuery!)
-            if groupCollection != nil {
-                groupCollection!.delegate = self
-                groupCollection!.fetch(completionHandler: { (error) in
-                     if error != nil {
-                         print(error?.debugDescription as Any)
-                     }
-                })
-            }
-        }
-    }
 
     public func deinitChannel() {
         print("deinitChannel")
         groupChannelSyncQuery = nil
-        groupCollection = nil
-        groupCollection?.remove()
-        groupCollection!.delegate = self
+        if(groupCollection != nil) {
+            groupCollection!.remove()
+            groupCollection!.delegate = nil
+            groupCollection = nil
+        }
+    }
+    
+    public func deinitMessageCollection() {
+//        if messageCollection != nil {
+//            messageCollection!.remove()
+//            messageCollection = nil
+//        }
     }
 
     // MARK: - group chanel
@@ -240,6 +249,10 @@ class SBManager: NSObject, SBDConnectionDelegate, SBDUserEventDelegate, SBDChann
         if groupChannelQuery == nil {
             groupChannelQuery = SBDGroupChannel.createMyGroupChannelListQuery()!
             groupChannelQuery?.limit = 20
+            groupChannelQuery?.includeEmptyChannel = true
+            groupChannelQuery?.order = .chronological
+            // SBDGroupChannelListOrderChronological, SBDGroupChannelListOrderLatestLastMessage, SBDGroupChannelListOrderChannelNameAlphabetical, and SBDGroupChannelListOrderChannelMetaDataValueAlphabetical
+
         }
     }
     
@@ -373,12 +386,15 @@ class SBManager: NSObject, SBDConnectionDelegate, SBDUserEventDelegate, SBDChann
         })
     }
     
-    // MARK: - Message list query
+
+    
+    // MARK: - SendMessage
     func sendMessage(isOpenChannel:Bool, channelUrl: String, message:String, completion: @escaping(Bool) -> ()) {
         
         if(isOpenChannel) {
             SBDOpenChannel.getWithUrl(channelUrl, completionHandler: { (openChannel, error) in
                 guard error == nil else {   // Error.
+                    print(error.debugDescription)
                     return
                 }
                 
@@ -387,12 +403,13 @@ class SBManager: NSObject, SBDConnectionDelegate, SBDUserEventDelegate, SBDChann
                 //params.data = DATA
                 //params.mentionType = SBDMentionTypeUsers        // Either SBDMentionTypeUsers or SBDMentionTypeChannel
                 params!.mentionedUserIds = ["Jeff", "Julia"]     // Or .mentionedUsers = LIST_OF_USERS_TO_MENTION
-                params!.metaArrayKeys = ["linkTo", "itemType"]
+                //params!.metaArrayKeys = ["linkTo", "itemType"]
                 params!.targetLanguages = ["fr", "de"]           // French and German
                 params!.pushNotificationDeliveryOption = .default
 
                 openChannel!.sendUserMessage(with: params!, completionHandler: { (userMessage, error) in
                     guard error == nil else {   // Error.
+                        print(error.debugDescription)
                         return
                     }
                     
@@ -405,8 +422,10 @@ class SBManager: NSObject, SBDConnectionDelegate, SBDUserEventDelegate, SBDChann
                 
             })
         } else {
+            //일반채널의 경우
             SBDGroupChannel.getWithUrl(channelUrl, completionHandler: { (groupChannel, error) in
                 guard error == nil else {   // Error.
+                    print(error.debugDescription)
                     return
                 }
                 var userIDsToMention: [String] = []
@@ -421,18 +440,24 @@ class SBManager: NSObject, SBDConnectionDelegate, SBDUserEventDelegate, SBDChann
                     return
                 }
 
+                print(message)
                 groupChannel!.sendUserMessage(with: paramsBinded, completionHandler: { (userMessage, error) in
                     guard error == nil else {
+                        print(error.debugDescription)
                         completion(false)
                         return
                     }
                     
                     //UI 리스트에 추가...
-                    self.chatModel.lists.append(SBManager.convertToChatModel(sbMessage: userMessage!))
- 
+                    //self.chatModel.lists.append(SBManager.convertToChatModel(sbMessage: userMessage!))
+
+                    //syncmanager의 경우
+                    //self.messageCollection?.appendMessage(userMessage!)
+                    
                     completion(true)
                 })
             })
+            
         }
     }
 
@@ -454,8 +479,8 @@ class SBManager: NSObject, SBDConnectionDelegate, SBDUserEventDelegate, SBDChann
                 var thumbnailSizes = [SBDThumbnailSize]()
 
                 // Creating and adding a SBDThumbnailSize object (allowed number of thumbnail images: 3).
-                thumbnailSizes.append(SBDThumbnailSize.make(withMaxCGSize: CGSize(width: 100.0, height: 100.0))!)
-                thumbnailSizes.append(SBDThumbnailSize.make(withMaxWidth: 200.0, maxHeight: 200.0)!)
+                thumbnailSizes.append(SBDThumbnailSize.make(withMaxCGSize: CGSize(width: 100.0, height: 100.0)))
+                thumbnailSizes.append(SBDThumbnailSize.make(withMaxWidth: 200.0, maxHeight: 200.0))
 
                 let params = SBDFileMessageParams(file: fileData)
                 //params.fileName = FILE_NAME
@@ -482,12 +507,29 @@ class SBManager: NSObject, SBDConnectionDelegate, SBDUserEventDelegate, SBDChann
         }
     }
     
+    func printLog(log: String) {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSS "
+        print(formatter.string(from: NSDate() as Date), terminator: "")
+        if log == nil {
+            print("nil")
+        }
+        else {
+            print(log)
+        }
+    }
+    
     // MARK: - SBDConnectionDelegate
     func didStartReconnection() {
-        print("SBDConnectionDelegate didStartReconnection")
+        printLog(log:"SBDConnectionDelegate didStartReconnection")
+        printLog(log:"SBDConnectionDelegate pauseSynchronize")
+        SBSMSyncManager.pauseSynchronize()
     }
 
     func didSucceedReconnection() {
+        printLog(log:"SBDConnectionDelegate didSucceedReconnection")
+        printLog(log:"SBDConnectionDelegate resumeSynchronize")
+        SBSMSyncManager.resumeSynchronize()
         syncViewModel()
     }
 
@@ -501,26 +543,32 @@ class SBManager: NSObject, SBDConnectionDelegate, SBDUserEventDelegate, SBDChann
     
     // MARK: - SBDChannelDelegate
     func channel(_ sender: SBDBaseChannel, didReceive message: SBDBaseMessage) {
-        print("SBDConnectionDelegate didReceive")
-        //UI 리스트에 추가...
+        print("SBDChannelDelegate didReceive::message")
+
+        //UI 리스트에 추가
+        //TODO - SyncManager chat이면 여기서 메시지 수신처리를 하면 안됨
         UserNotiRegister.shared().registUserNoti(sbMessage: message)
-        self.chatModel.lists.append(SBManager.convertToChatModel(sbMessage: message))
+        if chatType != ChatUIView.ChatType.groupChatSync {
+            DispatchQueue.main.async {
+                self.chatModel.lists.append(SBManager.convertToChatModel(sbMessage: message))
+            }
+        }
     }
 
     func channel(_ sender: SBDBaseChannel, didUpdate message: SBDBaseMessage) {
-        print("SBDConnectionDelegate didUpdate")
+        print("SBDChannelDelegate didUpdate")
     }
 
     func channel(_ sender: SBDBaseChannel, messageWasDeleted messageId: Int64) {
-        print("SBDConnectionDelegate messageWasDeleted")
+        print("SBDChannelDelegate messageWasDeleted")
     }
 
     func channel(_ channel: SBDBaseChannel, didReceiveMention message: SBDBaseMessage) {
-        print("SBDConnectionDelegate didReceiveMention")
+        print("SBDChannelDelegate didReceiveMention")
     }
 
     func channelWasChanged(_ sender: SBDBaseChannel) {
-        print("SBDConnectionDelegate channelWasChanged")
+        print("SBDChannelDelegate channelWasChanged")
         if sender is SBDGroupChannel {
             //TODO 이미 있으면 지우고 업데이트
             let model = GroupChannelModel(id: sender.channelUrl, name: sender.name, channelUrl: sender.channelUrl, coverUrl: sender.coverUrl!)
@@ -535,134 +583,99 @@ class SBManager: NSObject, SBDConnectionDelegate, SBDUserEventDelegate, SBDChann
     }
 
     func channelWasDeleted(_ channelUrl: String, channelType: SBDChannelType) {
-        print("SBDConnectionDelegate channelWasDeleted")
+        print("SBDChannelDelegate channelWasDeleted")
     }
 
     func channelWasFrozen(_ sender: SBDBaseChannel) {
-        print("SBDConnectionDelegate channelWasFrozen")
+        print("SBDChannelDelegate channelWasFrozen")
     }
 
     func channelWasUnfrozen(_ sender: SBDBaseChannel) {
-        print("SBDConnectionDelegate channelWasUnfrozen")
+        print("SBDChannelDelegate channelWasUnfrozen")
     }
 
     func channel(_ sender: SBDBaseChannel, createdMetaData: [String : String]?) {
-        print("SBDConnectionDelegate createdMetaData")
+        print("SBDChannelDelegate createdMetaData")
     }
 
     func channel(_ sender: SBDBaseChannel, updatedMetaData: [String : String]?) {
-        print("SBDConnectionDelegate updatedMetaData")
+        print("SBDChannelDelegate updatedMetaData")
     }
 
     func channel(_ sender: SBDBaseChannel, deletedMetaDataKeys: [String]?) {
-        print("SBDConnectionDelegate deletedMetaDataKeys")
+        print("SBDChannelDelegate deletedMetaDataKeys")
     }
 
     func channel(_ sender: SBDBaseChannel, createdMetaCounters: [String : NSNumber]?) {
-        print("SBDConnectionDelegate createdMetaCounters")
+        print("SBDChannelDelegate createdMetaCounters")
     }
 
     func channel(_ sender: SBDBaseChannel, updatedMetaCounters: [String : NSNumber]?) {
-        print("SBDConnectionDelegate updatedMetaCounters")
+        print("SBDChannelDelegate updatedMetaCounters")
     }
 
     func channel(_ sender: SBDBaseChannel, deletedMetaCountersKeys: [String]?) {
-        print("SBDConnectionDelegate deletedMetaCountersKeys")
+        print("SBDChannelDelegate deletedMetaCountersKeys")
     }
 
     func channelWasHidden(_ sender: SBDGroupChannel) {
-        print("SBDConnectionDelegate channelWasHidden")
+        print("SBDChannelDelegate channelWasHidden")
     }
 
     func channel(_ sender: SBDGroupChannel, didReceiveInvitation invitees: [SBDUser]?, inviter: SBDUser?) {
-        print("SBDConnectionDelegate didReceiveInvitation")
+        print("SBDChannelDelegate didReceiveInvitation")
     }
 
     func channel(_ sender: SBDGroupChannel, didDeclineInvitation invitee: SBDUser, inviter: SBDUser?) {
-        print("SBDConnectionDelegate didDeclineInvitation")
+        print("SBDChannelDelegate didDeclineInvitation")
     }
 
     func channel(_ sender: SBDGroupChannel, userDidJoin user: SBDUser) {
-        print("SBDConnectionDelegate userDidJoin")
+        print("SBDChannelDelegate userDidJoin")
     }
 
     func channel(_ sender: SBDGroupChannel, userDidLeave user: SBDUser) {
-        print("SBDConnectionDelegate userDidLeave")
+        print("SBDChannelDelegate userDidLeave")
     }
 
     func channelDidUpdateReadReceipt(_ sender: SBDGroupChannel) {
-        print("SBDConnectionDelegate channelDidUpdateReadReceipt")
+        print("SBDChannelDelegate channelDidUpdateReadReceipt")
     }
 
     func channelDidUpdateTypingStatus(_ sender: SBDGroupChannel) {
-        print("SBDConnectionDelegate channelDidUpdateTypingStatus")
+        print("SBDChannelDelegate channelDidUpdateTypingStatus")
     }
 
     func channel(_ sender: SBDOpenChannel, userDidEnter user: SBDUser) {
-        print("SBDConnectionDelegate userDidEnter")
+        print("SBDChannelDelegate userDidEnter")
     }
 
     func channel(_ sender: SBDOpenChannel, userDidExit user: SBDUser) {
-        print("SBDConnectionDelegate userDidExit")
+        print("SBDChannelDelegate userDidExit")
     }
 
     func channel(_ sender: SBDBaseChannel, userWasMuted user: SBDUser) {
-        print("SBDConnectionDelegate userWasMuted")
+        print("SBDChannelDelegate userWasMuted")
     }
 
     func channel(_ sender: SBDBaseChannel, userWasUnmuted user: SBDUser) {
-        print("SBDConnectionDelegate userWasUnmuted")
+        print("SBDChannelDelegate userWasUnmuted")
     }
 
     func channel(_ sender: SBDBaseChannel, userWasBanned user: SBDUser) {
-        print("SBDConnectionDelegate userWasBanned")
+        print("SBDChannelDelegate userWasBanned")
     }
 
     func channel(_ sender: SBDBaseChannel, userWasUnbanned user: SBDUser) {
-        print("SBDConnectionDelegate userWasUnbanned")
+        print("SBDChannelDelegate userWasUnbanned")
     }
     
     // MARK: - SBDUserEventDelegate
     func didDiscoverFriends(_ friends: [SBDUser]?) {
-        print("SBDConnectionDelegate didDiscoverFriends")
+        print("SBDUserEventDelegate didDiscoverFriends")
     }
 
     func didUpdateTotalUnreadMessageCount(_ totalCount: Int32, totalCountByCustomType: [String : NSNumber]?) {
-        print("SBDConnectionDelegate didUpdateTotalUnreadMessageCount")
-    }
-    
-    
-    //MARK: - SBSMChannelCollectionDelegate
-    func collection(_ collection: SBSMChannelCollection, didReceiveEvent action: SBSMChannelEventAction, channels: [SBDGroupChannel]) {
-        switch (action) {
-            case .insert:
-                // TODO: Add channels to the view.
-                print("SBSMChannelCollection insert")
-                for channel in channels {
-                    self.gropuChannelSyncModel.lists.append(GroupChannelSyncModel(id: channel.channelUrl, name: channel.name, channelUrl: channel.channelUrl, coverUrl: channel.coverUrl!))
-                }
-                break
-            case .update:
-                // TODO: Update channels to the view.
-                print("SBSMChannelCollection update")
-                break
-            case .remove:
-                // TODO: Remove channels from the view.
-                print("SBSMChannelCollection remove")
-                break
-            case .move:
-                // TODO: Change the position of channels in the view.
-                print("SBSMChannelCollection move")
-                break
-            case .clear:
-                // TODO: Clear the view.
-                print("SBSMChannelCollection clear")
-                break
-            case .none:
-                print("SBSMChannelCollection none")
-                break;
-        @unknown default:
-            print("action default")
-        }
+        print("SBDUserEventDelegate didUpdateTotalUnreadMessageCount")
     }
 }

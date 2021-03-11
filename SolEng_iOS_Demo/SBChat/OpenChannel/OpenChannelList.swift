@@ -14,7 +14,7 @@ struct OpenChannelList: View {
 
     var body: some View {
         List(models.lists) { item in
-            NavigationLink(destination: ChatUIView(isOpenChat:true, channelUrl: item.channelUrl, channelName: item.name)) {
+            NavigationLink(destination: ChatUIView(chatType:ChatUIView.ChatType.openChat, channelUrl: item.channelUrl, channelName: item.name)) {
                OpenChannelListItemRow(item : item)
             }
         }

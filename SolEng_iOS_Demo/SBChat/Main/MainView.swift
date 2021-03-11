@@ -16,6 +16,9 @@ struct MainView: View {
         MainViewListItem(id: 1, name: "Group Channel Sync"),
         MainViewListItem(id: 2, name: "Group Channel Basic"),
         MainViewListItem(id: 3, name: "Open Channel"),
+        MainViewListItem(id: 4, name: "WkWebView"),
+        MainViewListItem(id: 5, name: "Desk"),
+        MainViewListItem(id: 6, name: "Group Call"),
     ]
 
     var body: some View {
@@ -38,7 +41,19 @@ struct MainView: View {
                    NavigationLink(destination: OpenChannelList()) {
                        MainViewListItemRow(item : menuItem)
                    }
-                } 
+                } else if  menuItem.id == 4 {
+                   NavigationLink(destination: WebChat()) {
+                       MainViewListItemRow(item : menuItem)
+                   }
+                } else if  menuItem.id == 5 {
+                    NavigationLink(destination: DeskChannelList()) {
+                        MainViewListItemRow(item : menuItem)
+                   }
+               } else if  menuItem.id == 6 {
+                    NavigationLink(destination: RoomList()) {
+                        MainViewListItemRow(item : menuItem)
+               }
+           }
             }
             .navigationBarTitle(Text("SendBird Chat Demo"))
             .navigationBarItems(trailing:
@@ -50,7 +65,7 @@ struct MainView: View {
             .navigationBarItems(leading:
                 HStack {
                 Button(UserDefaults.standard.user.id) {
-                        //SBManager.shared().logOut()
+                        SBManager.shared().logOut()
                     }
             })
 
