@@ -521,14 +521,14 @@ class SBManager: NSObject, SBDConnectionDelegate, SBDUserEventDelegate, SBDChann
     
     // MARK: - SBDConnectionDelegate
     func didStartReconnection() {
-        printLog(log:"SBDConnectionDelegate didStartReconnection")
-        printLog(log:"SBDConnectionDelegate pauseSynchronize")
+        print("SBDConnectionDelegate didStartReconnection")
+        print("SBDConnectionDelegate pauseSynchronize")
         SBSMSyncManager.pauseSynchronize()
     }
 
     func didSucceedReconnection() {
-        printLog(log:"SBDConnectionDelegate didSucceedReconnection")
-        printLog(log:"SBDConnectionDelegate resumeSynchronize")
+        print("SBDConnectionDelegate didSucceedReconnection")
+        print("SBDConnectionDelegate resumeSynchronize")
         SBSMSyncManager.resumeSynchronize()
         syncViewModel()
     }

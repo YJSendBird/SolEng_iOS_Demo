@@ -74,14 +74,14 @@ PODS:
     - PINCache (~> 3.0.3)
     - PINRemoteImage/Core
   - PromisesObjC (1.2.12)
-  - SendBirdCalls (1.5.2):
+  - SendBirdCalls (1.5.3):
     - SendBirdWebRTC
-  - SendBirdDesk (1.0.12):
+  - SendBirdDesk (1.0.13):
     - SendBirdSDK
-  - SendBirdSDK (3.0.215)
+  - SendBirdSDK (3.0.218)
   - SendBirdSyncManager (1.1.36):
     - SendBirdSDK (~> 3.0.203)
-  - SendBirdUIKit (2.0.7):
+  - SendBirdUIKit (2.0.9):
     - SendBirdSDK (~> 3.0.205)
   - SendBirdWebRTC (1.2.0)
   - TOCropViewController (2.6.0)
@@ -148,11 +148,11 @@ SPEC CHECKSUMS:
   PINOperation: 00c935935f1e8cf0d1e2d6b542e75b88fc3e5e20
   PINRemoteImage: f1295b29f8c5e640e25335a1b2bd9d805171bd01
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
-  SendBirdCalls: 704e9cbf58cced78a8ec29d02e02e1a400b54e31
-  SendBirdDesk: a3441836133fadbaf7f80a8f3b45b400baa59c6b
-  SendBirdSDK: 8b36b020514c8bff226576fc2f4f0d47e7193ebb
+  SendBirdCalls: f0aad47109e4be6b71184bc47d431858c5f53031
+  SendBirdDesk: d7f1b8196bbe7c86488863ec7ac6aedd7a81f805
+  SendBirdSDK: d53a448ecbc9e6c5f58a3ab0510c4295954a20ee
   SendBirdSyncManager: 1d0252adec807b76501d2c0385cc417e64433878
-  SendBirdUIKit: dad67f6dfb2aacbf28e68b78b34d77aec2a954f7
+  SendBirdUIKit: 72974f72f11667d68ccfa0808d4ee329bb21e895
   SendBirdWebRTC: 7ba91b10a214ae2f1d99de28b9a70bd68d897511
   TOCropViewController: 3105367e808b7d3d886a74ff59bf4804e7d3ab38
 

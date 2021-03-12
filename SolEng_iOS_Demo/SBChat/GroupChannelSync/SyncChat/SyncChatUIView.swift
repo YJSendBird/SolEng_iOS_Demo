@@ -44,21 +44,19 @@ struct SyncChatUIView: View{
                     Text("Send")
                 }
             }.frame(minHeight: CGFloat(50)).padding()
-//            Button(action: newChatUI) {
-//                Text("new Chat")
-//            }.frame(minHeight: CGFloat(50)).padding()
-//            NavigationLink( destination: SyncChatUIView(channelName: "second channel",viewModel: SyncChatViewModel(channelUrl: channel02)), isActive: self.$newChatOn){
-//                EmptyView()
-//            }
+            NavigationLink(destination: SyncChatUIView(channelName: "new channel",viewModel: SyncChatViewModel(channelUrl: channel02)), isActive: self.$newChatOn) {
+                EmptyView()
+            }.frame(width: 0, height: 0)
+            .navigationBarItems(trailing:
+                HStack {
+                    Button("New Chat") {
+                        self.newChatOn = true
+                    }
+            })
         }
-        .onAppear(perform: fetchMessage)
-        //.onDisappear(perform: )
+        //.onAppear(perform: fetchMessage)
+        //.onDisappear(perform: release)
         .navigationBarTitle(Text(self.channelName))
-    }
-    
-    func newChatUI() {
-
-        self.newChatOn = true
     }
 
     func sendMessage() {
